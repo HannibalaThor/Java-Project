@@ -1,3 +1,3 @@
 # Java-Project 
 Repository for the Java Project, the group is composed of ThÃ©ophane LECLERE as chief manager/developer, Enzo Berthomieu, ClÃ©ment ERB and Alexandre Montoro as developers.
-Test Clement/Theophane/Enzo/Théophane2
+Test Clement/Theophane/Enzo/Théophane2/Alexandre
