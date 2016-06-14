@@ -35,7 +35,7 @@ public class Model extends Observable implements IModel {
 	 * Sets the message.
 	 *
 	 * @param message
-	 *          the new message
+	 *            the new message
 	 */
 	private void setMessage(final String message) {
 		this.message = message;
