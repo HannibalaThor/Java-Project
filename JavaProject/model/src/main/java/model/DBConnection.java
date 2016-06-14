@@ -27,11 +27,11 @@ final class DBConnection {
 	 * Gets the single instance of DBConnection.
 	 *
 	 * @return single instance of DBConnection
-	 */
+	 */ 
 	public static synchronized DBConnection getInstance() {
 		if (DBConnection.INSTANCE == null) {
 			DBConnection.INSTANCE = new DBConnection();
-		}
+		} 
 		return DBConnection.INSTANCE;
 	}
 
