@@ -16,7 +16,7 @@ class DAONovaAnn extends DAOEntity<NovaAnnWorld> {
 	 * @throws SQLException
 	 *           the SQL exception
 	 */
-	public DAONovaAnn(final Connection connection) throws SQLException {
+	public DAONovaAnn (final Connection connection) throws SQLException {
 		super(connection);
 	}
 

@@ -2,6 +2,8 @@ package model.NovaAnn.DAO;
 
 import static org.junit.Assert.*;
 
+import java.sql.Connection;
+
 import org.junit.After;
 import org.junit.AfterClass;
 import org.junit.Before;
@@ -9,6 +11,9 @@ import org.junit.BeforeClass;
 import org.junit.Test;
 
 public class DAOEntityTest {
+
+	private static final Connection Connection = null;
+	private DAOEntity daoEntity;
 
 	@BeforeClass
 	public static void setUpBeforeClass() throws Exception {
@@ -18,8 +23,10 @@ public class DAOEntityTest {
 	public static void tearDownAfterClass() throws Exception {
 	}
 
+
 	@Before
 	public void setUp() throws Exception {
+		this.daoEntity = new DAOEntity(Connection);
 	}
 
 	@After
@@ -33,7 +40,7 @@ public class DAOEntityTest {
 
 	@Test
 	public void testGetConnection() {
-		fail("Not yet implemented");
+		assertNotNull(this.daoEntity.getConnection());
 	}
 
 	@Test

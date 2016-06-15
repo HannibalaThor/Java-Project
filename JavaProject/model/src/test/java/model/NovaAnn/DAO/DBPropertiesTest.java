@@ -8,6 +8,7 @@ import org.junit.Before;
 import org.junit.BeforeClass;
 import org.junit.Test;
 
+
 public class DBPropertiesTest {
 
 	@BeforeClass
@@ -18,10 +19,11 @@ public class DBPropertiesTest {
 	public static void tearDownAfterClass() throws Exception {
 	}
 
-	private Object DBroperties;
+	private DBProperties DBroperties;
 
 	@Before
 	public void setUp() throws Exception {
+		this.DBroperties = new DBProperties();
 	}
 
 	@After
@@ -29,26 +31,21 @@ public class DBPropertiesTest {
 	}
 
 	@Test
-	public void testDBProperties() {
-		fail("Not yet implemented");
-	}
-
-	@Test
 	public void testGetUrl() {
-		final String expected = "jdbc:mysql://localhost:8889/JavLorann";
-		 assertEquals(expected, this.DBroperties);
-		
-		fail("Not yet implemented");
+		final String expected = "jdbc:mysql://localhost:8889/JavaLorann";
+		 assertEquals(expected, this.DBroperties.getUrl());
 	}
 
 	@Test
 	public void testGetLogin() {
-		fail("Not yet implemented");
+		final String expected = "root";
+		 assertEquals(expected, this.DBroperties.getLogin());
 	}
 
 	@Test
 	public void testGetPassword() {
-		fail("Not yet implemented");
+		final String expected = "root";
+		 assertEquals(expected, this.DBroperties.getPassword());
 	}
 
 }

@@ -2,6 +2,8 @@ package model.NovaAnn.DAO;
 
 import static org.junit.Assert.*;
 
+import java.sql.Connection;
+
 import org.junit.After;
 import org.junit.AfterClass;
 import org.junit.Before;
@@ -9,6 +11,9 @@ import org.junit.BeforeClass;
 import org.junit.Test;
 
 public class DAONovaAnnTest {
+
+	private static final Connection Connection = null;
+	private DAONovaAnn daoNovaAnn;
 
 	@BeforeClass
 	public static void setUpBeforeClass() throws Exception {
@@ -20,6 +25,7 @@ public class DAONovaAnnTest {
 
 	@Before
 	public void setUp() throws Exception {
+		this.daoNovaAnn = new DAONovaAnn(Connection);
 	}
 
 	@After
@@ -28,27 +34,29 @@ public class DAONovaAnnTest {
 
 	@Test
 	public void testDAONovaAnn() {
-		fail("Not yet implemented");
+		assertNotNull(daoNovaAnn);
 	}
 
 	@Test
 	public void testCreateNovaAnnWorld() {
-		fail("Not yet implemented");
+		NovaAnnWorld entity;
+		assertFalse(daoNovaAnn.create(entity));
 	}
 
 	@Test
 	public void testDeleteNovaAnnWorld() {
-		fail("Not yet implemented");
+		NovaAnnWorld entity;
+		assertFalse(daoNovaAnn.delete(entity));
 	}
 
 	@Test
 	public void testFindMotionLessIntIntInt() {
-		fail("Not yet implemented");
+		assertNull(daoNovaAnn.findMotionLess(3, 1, 2));
 	}
 
 	@Test
 	public void testFindMobileInt() {
-		fail("Not yet implemented");
+		assertNull(daoNovaAnn.findMobile(2));
 	}
 
 }
