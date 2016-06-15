@@ -13,7 +13,7 @@ import org.junit.Test;
 /**
  * The Class ModelTest.
  *
- * @author Jean-Aymeric Diet
+ *
  */
 public class ModelTest {
 	private Model model;
