@@ -37,7 +37,7 @@ public abstract class Mobile extends Element {
 	public Mobile(ISprite sprite) {
 	}
 
-	public void setNettleWorld(final INettleWorld nettleWorld, final int x, final int y) {
+	public void setNettleWorld(final INovaAnnWorld nettleWorld, final int x, final int y) {
 		super.setNettleWorld(nettleWorld);
 		this.setX(x);
 		this.setY(y);
