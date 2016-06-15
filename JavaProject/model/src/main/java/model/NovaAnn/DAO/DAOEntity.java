@@ -1,4 +1,4 @@
-package model;
+package model.NovaAnn.DAO;
 
 import java.sql.Connection;
 import java.sql.SQLException;

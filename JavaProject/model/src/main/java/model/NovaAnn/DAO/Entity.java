@@ -1,4 +1,4 @@
-package model;
+package model.NovaAnn.DAO;
 
 abstract class Entity {
 

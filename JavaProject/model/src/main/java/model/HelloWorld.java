@@ -1,5 +1,7 @@
 package model;
 
+import model.NovaAnn.DAO.Entity;
+
 /**
  * The Class HelloWorld.
  *
