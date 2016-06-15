@@ -3,14 +3,8 @@ package model;
 import java.sql.Connection;
 import java.sql.SQLException;
 
-/**
- * The Class DAOEntity.
- *
- * @author Jean-Aymeric Diet
- *
- * @param <E>
- *          the element type
- */
+
+
 abstract class DAOEntity<E extends Entity> {
 
 	/** The connection. */
@@ -36,7 +30,6 @@ abstract class DAOEntity<E extends Entity> {
 	protected Connection getConnection() {
 		return this.connection;
 	}
-
 	/**
 	 * Creates the.
 	 *
@@ -55,31 +48,9 @@ abstract class DAOEntity<E extends Entity> {
 	 */
 	public abstract boolean delete(E entity);
 
-	/**
-	 * Update.
-	 *
-	 * @param entity
-	 *          the entity
-	 * @return true, if successful
-	 */
-	public abstract boolean update(E entity);
 
-	/**
-	 * Find.
-	 *
-	 * @param id
-	 *          the id
-	 * @return the e
-	 */
-	public abstract E find(int id);
+	public abstract E findMotionLess(int x, int y, int lvl);
 
-	/**
-	 * Find.
-	 *
-	 * @param key
-	 *          the key
-	 * @return the e
-	 */
-	public abstract E find(String key);
+	public abstract E findMobile(int level);
 
 }

@@ -63,7 +63,7 @@ public class Controller implements IController {
 	 * (non-Javadoc)
 	 *
 	 * @see contract.IController#orderPerform(contract.ControllerOrder)
-	 */
+	 
 	public void orderPerform(final ControllerOrder controllerOrder) {
 		switch (controllerOrder) {
 			case English:
@@ -82,6 +82,6 @@ public class Controller implements IController {
 			default:
 				break;
 		}
-	}
+	}*/
 
 }
