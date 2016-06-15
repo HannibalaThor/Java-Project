@@ -1,5 +1,5 @@
 package NovaAnn.play;
 
-public class NovaAnnMode {
-
+public enum NovaAnnMode {
+MAP, MEETING;
 }
