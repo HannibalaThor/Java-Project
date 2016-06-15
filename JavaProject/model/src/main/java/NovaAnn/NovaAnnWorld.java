@@ -1,8 +1,8 @@
-package model;
+package NovaAnn;
 
 import jpu2016.nettle.world.element.mobile.Hero;
 
-public class NovaAnnWorld {
+public class NovaAnnWorld implements INovaAnnWorld{
 	private int width;
 	private int height;
 	private int point = 0;
@@ -13,7 +13,7 @@ public class NovaAnnWorld {
 	public int getWidth(){
 	}
 
-	public int getHeight() {
+	public int getHeight(){
 	}
 	
 	public NovaAnnWorld(){
