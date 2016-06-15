@@ -18,6 +18,8 @@ public class DBPropertiesTest {
 	public static void tearDownAfterClass() throws Exception {
 	}
 
+	private Object DBroperties;
+
 	@Before
 	public void setUp() throws Exception {
 	}
@@ -33,6 +35,9 @@ public class DBPropertiesTest {
 
 	@Test
 	public void testGetUrl() {
+		final String expected = "jdbc:mysql://localhost:8889/JavLorann";
+		 assertEquals(expected, this.DBroperties);
+		
 		fail("Not yet implemented");
 	}
 
