@@ -1,5 +1,5 @@
 package model.NovaAnn.DAO;
 
-abstract class Entity {
+public abstract class Entity {
 
 }
