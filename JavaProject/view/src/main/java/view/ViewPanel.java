@@ -3,7 +3,6 @@ package view;
 import java.awt.Graphics;
 import java.util.Observable;
 import java.util.Observer;
-
 import javax.swing.JPanel;
 
 /**
@@ -14,15 +13,15 @@ import javax.swing.JPanel;
 class ViewPanel extends JPanel implements Observer {
 
 	/** The view frame. */
-	private ViewFrame					viewFrame;
+	private ViewFrame viewFrame;
 	/** The Constant serialVersionUID. */
-	private static final long	serialVersionUID	= -998294702363713521L;
+	private static final long serialVersionUID = -998294702363713521L;
 
 	/**
 	 * Instantiates a new view panel.
 	 *
 	 * @param viewFrame
-	 *          the view frame
+	 *            the view frame
 	 */
 	public ViewPanel(final ViewFrame viewFrame) {
 		this.setViewFrame(viewFrame);
@@ -42,7 +41,7 @@ class ViewPanel extends JPanel implements Observer {
 	 * Sets the view frame.
 	 *
 	 * @param viewFrame
-	 *          the new view frame
+	 *            the new view frame
 	 */
 	private void setViewFrame(final ViewFrame viewFrame) {
 		this.viewFrame = viewFrame;
@@ -66,6 +65,7 @@ class ViewPanel extends JPanel implements Observer {
 	protected void paintComponent(final Graphics graphics) {
 		graphics.clearRect(0, 0, this.getWidth(), this.getHeight());
 		graphics.drawString(this.getViewFrame().getModel().getMessage(), 10, 20);
-		
+
 	}
+	
 }
