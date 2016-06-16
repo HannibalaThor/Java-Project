@@ -11,6 +11,7 @@ import javax.swing.JPanel;
  * @author Jean-Aymeric Diet
  */
 class ViewPanel extends JPanel implements Observer {
+
 	/** The view frame. */
 	private ViewFrame viewFrame;
 	/** The Constant serialVersionUID. */
@@ -25,7 +26,6 @@ class ViewPanel extends JPanel implements Observer {
 	public ViewPanel(final ViewFrame viewFrame) {
 		this.setViewFrame(viewFrame);
 		viewFrame.getModel().getObservable().addObserver(this);
-
 	}
 
 	/**
@@ -67,5 +67,5 @@ class ViewPanel extends JPanel implements Observer {
 		graphics.drawString(this.getViewFrame().getModel().getMessage(), 10, 20);
 
 	}
-
+	
 }
