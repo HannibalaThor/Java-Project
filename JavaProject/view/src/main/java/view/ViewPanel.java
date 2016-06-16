@@ -1,15 +1,8 @@
 package view;
 
 import java.awt.Graphics;
-import java.awt.Image;
-
-import java.io.File;
-import java.io.IOException;
 import java.util.Observable;
 import java.util.Observer;
-
-import javax.imageio.ImageIO;
-
 import javax.swing.JPanel;
 
 /**
@@ -69,18 +62,10 @@ class ViewPanel extends JPanel implements Observer {
 	 * @see javax.swing.JComponent#paintComponent(java.awt.Graphics)
 	 */
 	@Override
-	protected void paintComponent(Graphics graphics) {
-		Image image;
-		for (int x = 0; x < this.getWidth(); x= x +32) {
-			for (int y = 0; y < this.getHeight(); y= y+32) {
-				try {
-					image = ImageIO.read(new File("C:/Users/Enzo/Desktop/Projet java/sprite/fireball_4.png"));
-					graphics.drawImage(image, x, y, this);
-				} catch (IOException e) {
-					// TODO Auto-generated catch block
-					e.printStackTrace();
-				}
-			}
-		}
+	protected void paintComponent(final Graphics graphics) {
+		graphics.clearRect(0, 0, this.getWidth(), this.getHeight());
+		graphics.drawString(this.getViewFrame().getModel().getMessage(), 10, 20);
+
 	}
+
 }
