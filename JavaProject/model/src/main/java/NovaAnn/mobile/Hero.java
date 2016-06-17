@@ -6,6 +6,8 @@ import NovaAnn.element.Sprite;
 
 public class Hero extends Mobile{
 	private final Point lastPosition;
+	
+	public String name = "Hero";
 
 	public Hero() {
 		super(new Sprite("☺!", "Hero.png"));

@@ -4,15 +4,25 @@ import java.io.IOException;
 
 import NovaAnn.INovaAnnWorld;
 import NovaAnn.NovaAnnWorld;
+import NovaAnn.DAO.DAONovaAnn;
 
 public class NovaAnnPlay implements IOrderPerformed{
 	private INovaAnnWorld novaAnnWorld;
 	private INovaAnnWorld novaAnnMeeting;
 	private INovaAnnFrame novaAnnFrame;
+	DAONovaAnn daoNovaAnn;
 	private int playMode;
 	
 	public NovaAnnPlay(INovaAnnWorld novaAnnWorld){
-		
+	this.novaAnnWorld = novaAnnWorld;
+	int lvl = 1;
+	
+	//String element = MobileElement.table[id].getName;
+	
+	for(int id = 0; id>4; id++){
+		this.novaAnnWorld.addMobile(MobileElement.tableElement[id], daoNovaAnn.findMobile(lvl, MobileElement.tableString[id]).x,daoNovaAnn.findMobile(lvl, MobileElement.tableString[id]).y);
+	}
+	
 	}
 	
 	public INovaAnnWorld getNovaAnnWorld(){

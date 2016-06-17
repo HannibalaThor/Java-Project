@@ -9,6 +9,7 @@ import java.sql.SQLException;
 import NovaAnn.NovaAnnWorld;
 
 
+
 public class DAONovaAnn extends DAOEntity<NovaAnnWorld> {
 
 	private Point position;
@@ -98,6 +99,7 @@ public class DAONovaAnn extends DAOEntity<NovaAnnWorld> {
 		}
 		return null;
 	}
+
 
 
 }

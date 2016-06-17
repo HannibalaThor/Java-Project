@@ -12,6 +12,7 @@ import NovaAnn.DAO.DBConnection;
 import NovaAnn.DAO.Entity;
 import NovaAnn.mobile.Hero;
 import NovaAnn.mobile.Mobile;
+import NovaAnn.mobile.MonsterMobile;
 import NovaAnn.motionLessElement.MotionLessElement;
 
 public class NovaAnnWorld extends Entity implements INovaAnnWorld, GObserver{
@@ -101,6 +102,11 @@ public class NovaAnnWorld extends Entity implements INovaAnnWorld, GObserver{
 	}
 
 	public void perform() {
+		// TODO Auto-generated method stub
+		
+	}
+
+	public void addMobile(MonsterMobile monsterMobile, int x, int y) {
 		// TODO Auto-generated method stub
 		
 	}
