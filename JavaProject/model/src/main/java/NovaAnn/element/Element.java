@@ -1,12 +1,15 @@
 package NovaAnn.element;
 
 
+
 import java.awt.Image;
 
 import NovaAnn.INovaAnnWorld;
+import NovaAnn.NovaAnnWorld;
 
 
-public abstract class Element /*implements ISquare*/ {
+
+public abstract class Element implements INovaAnnWorld {
 	private ISprite				sprite;
 	private Permeability	permeability;
 	private INovaAnnWorld	novaAnnWorld;
@@ -44,4 +47,5 @@ public abstract class Element /*implements ISquare*/ {
 	public Image getImage() {
 		return this.getSprite().getImage();
 	}
+
 }

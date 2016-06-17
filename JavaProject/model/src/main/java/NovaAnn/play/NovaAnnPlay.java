@@ -9,7 +9,7 @@ import NovaAnn.DAO.DAONovaAnn;
 public class NovaAnnPlay implements IOrderPerformed{
 	private INovaAnnWorld novaAnnWorld;
 	private INovaAnnWorld novaAnnMeeting;
-	private INovaAnnFrame novaAnnFrame;
+	//private INovaAnnFrame novaAnnFrame;
 	DAONovaAnn daoNovaAnn;
 	private int playMode;
 	
@@ -17,12 +17,16 @@ public class NovaAnnPlay implements IOrderPerformed{
 	this.novaAnnWorld = novaAnnWorld;
 	int lvl = 1;
 	
-	//String element = MobileElement.table[id].getName;
 	
 	for(int id = 0; id>4; id++){
 		this.novaAnnWorld.addMobile(MobileElement.tableElement[id], daoNovaAnn.findMobile(lvl, MobileElement.tableString[id]).x,daoNovaAnn.findMobile(lvl, MobileElement.tableString[id]).y);
 	}
 	
+	}
+
+	public void orderPerform(UserOrder userOrder) throws IOException {
+		// TODO Auto-generated method stub
+		
 	}
 	
 	public INovaAnnWorld getNovaAnnWorld(){
@@ -91,5 +95,4 @@ public class NovaAnnPlay implements IOrderPerformed{
 	public void setNovaAnnMeeting(INovaAnnWorld novaAnnMeeting){
 		
 	}
-	
 }

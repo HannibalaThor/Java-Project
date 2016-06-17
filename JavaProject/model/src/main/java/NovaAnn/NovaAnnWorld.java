@@ -13,18 +13,21 @@ import NovaAnn.DAO.Entity;
 import NovaAnn.mobile.Hero;
 import NovaAnn.mobile.Mobile;
 import NovaAnn.mobile.MonsterMobile;
+import NovaAnn.motionLessElement.MotionLessELements;
 import NovaAnn.motionLessElement.MotionLessElement;
+
+
+
 
 public class NovaAnnWorld extends Entity implements INovaAnnWorld, GObserver{
 	
-	
+	public  MotionLessElement				elements[][];
 	DAONovaAnn daoNovaAnn;
 	private int width;
 	private int height;
 	//private int point = 0;
 	public ArrayList<Mobile> mobiles;
 	private Hero hero;
-	public MotionLessElement elements[][];
 	
 	public int getWidth(){
 		return width;
@@ -34,17 +37,21 @@ public class NovaAnnWorld extends Entity implements INovaAnnWorld, GObserver{
 		return height;
 	}
 
-	public NovaAnnWorld()throws IOException{
+	public NovaAnnWorld()throws IOException, SQLException{
 		int lvl = 1;
+		DBConnection dbConnection = new DBConnection();
+		Connection connection = dbConnection.getConnection();
+		daoNovaAnn = new DAONovaAnn(connection);
 		this.loadFile(lvl); 
 	}
 	
-	public void addElement(MotionLessElement element, int x, int y){
+	public void addElement(final MotionLessElement element,final int x,final int y) {
 		this.elements[x][y] = element;
-		if(element != null){
+
+		if (element != null) {
 			element.setNovaAnnWorld(this);
-		} 
-		this.setChanged(); 
+			System.out.print(element.getSprite());
+		}
 	}
 	
 	public void addMobile(Hero hero, int x, int y){
@@ -77,14 +84,25 @@ public class NovaAnnWorld extends Entity implements INovaAnnWorld, GObserver{
 		int x = 1;
 		int y = 1;
 		Boolean end = true;
+		this.elements = new MotionLessElement[21][13];
 		
 		while(end){
 			
-		this.addElement(MotionLessElement.getfileSymbole(daoNovaAnn.findMotionLess( x, y, lvl)), x, y);
+			
+			
+			if (daoNovaAnn.findMotionLess(x, y, lvl) != ' '){
+			   MotionLessElement elem1 = MotionLessELements.getFromFileSymbol(daoNovaAnn.findMotionLess( x, y, lvl));
+				this.addElement(elem1 , x, y);
+			}
+			else if (daoNovaAnn.findMotionLess(x, y, lvl) == ' '){
+				MotionLessElement elem2 = MotionLessELements.FLOOR;
+				this.addElement(elem2 , x, y);		
+			}
 		x++;
 		if(x > 20){
 			y ++;
 			x=1;
+			System.out.print("\n");
 		}
 		if(y >12){
 			end = false;

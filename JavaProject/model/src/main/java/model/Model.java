@@ -1,60 +1,22 @@
 package model;
 
+import java.io.IOException;
 import java.sql.SQLException;
 import java.util.Observable;
 
-import contract.IModel;
+import NovaAnn.NovaAnn;
 
-/**
- * The Class Model.
- *
- * @author Jean-Aymeric Diet
- */
-public class Model extends Observable implements IModel {
+public class Model extends Observable {
 
-	/** The message. */
-	private String message;
+
 
 	/**
 	 * Instantiates a new model.
+	 * @throws IOException 
+	 * @throws SQLException 
 	 */
-	public Model() {
-		this.message = "";
-	}
-
-	/*
-	 * (non-Javadoc)
-	 *
-	 * @see contract.IModel#getMessage()
-	 */
-	public String getMessage() {
-		return this.message;
-	}
-
-	/**
-	 * Sets the message.
-	 *
-	 * @param message
-	 *          the new message
-	 */
-	private void setMessage(final String message) {
-		this.message = message;
-		this.setChanged();
-		this.notifyObservers();
-	}
-
-	/*
-	 * (non-Javadoc)
-	 *
-	 * @see contract.IModel#getMessage(java.lang.String)
-	 */
-	public void loadMessage(final String key) {
-		try {
-			final DAOHelloWorld daoHelloWorld = new DAOHelloWorld(DBConnection.getInstance().getConnection());
-			this.setMessage(daoHelloWorld.find(key).getMessage());
-		} catch (final SQLException e) {
-			e.printStackTrace();
-		}
+	public Model() throws IOException, SQLException {
+		new NovaAnn();
 	}
 
 	/*
