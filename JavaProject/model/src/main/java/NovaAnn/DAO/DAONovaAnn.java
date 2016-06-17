@@ -26,7 +26,7 @@ class DAONovaAnn extends DAOEntity<NovaAnnWorld> {
 	 * @see model.DAOEntity#create(model.Entity)
 	 */
 	@Override
-	public boolean create(final NovaAnnWorld entity) {
+	public boolean create(final NovaAnn.NovaAnnWorld entity) {
 		// Not implemented
 		return false;
 	}
@@ -37,7 +37,7 @@ class DAONovaAnn extends DAOEntity<NovaAnnWorld> {
 	 * @see model.DAOEntity#delete(model.Entity)
 	 */
 	@Override
-	public boolean delete(final NovaAnnWorld entity) {
+	public boolean delete(final NovaAnn.NovaAnnWorld entity) {
 		// Not implemented
 		return false;
 	}
@@ -75,8 +75,8 @@ class DAONovaAnn extends DAOEntity<NovaAnnWorld> {
 	 * @see model.DAOEntity#find(java.lang.String)
 	 */
 	@Override
-	public NovaAnnWorld findMobile(final int lvl) {
-		NovaAnnWorld novaAnnWorld = new NovaAnnWorld();
+	public NovaAnn.NovaAnnWorld findMobile(final int lvl) {
+		NovaAnn.NovaAnnWorld novaAnnWorld = new NovaAnn.NovaAnnWorld();
 
 		try {
 			final String sql = "{call WhatIsHere(?)}";
@@ -85,7 +85,7 @@ class DAONovaAnn extends DAOEntity<NovaAnnWorld> {
 			call.execute();
 			final ResultSet resultSet = call.getResultSet();
 			if (resultSet.first()) {
-				novaAnnWorld = new NovaAnnWorld(resultSet.getInt("MotionLessSymbol"), resultSet.getInt("x"), resultSet.getInt("y"));
+				novaAnnWorld = new NovaAnn.NovaAnnWorld(resultSet.getInt("MotionLessSymbol"), resultSet.getInt("x"), resultSet.getInt("y"));
 			}
 			return novaAnnWorld;
 		} catch (final SQLException e) {
@@ -93,5 +93,6 @@ class DAONovaAnn extends DAOEntity<NovaAnnWorld> {
 		}
 		return null;
 	}
+
 
 }
