@@ -1,5 +1,6 @@
 package NovaAnn.DAO;
 
+import java.awt.Point;
 import java.sql.Connection;
 import java.sql.SQLException;
 
@@ -47,10 +48,9 @@ abstract class DAOEntity<E extends Entity> {
 	 * @return true, if successful
 	 */
 	public abstract boolean delete(E entity);
+	
+	public abstract char findMotionLess(int x, int y, int lvl);
 
-
-	public abstract E findMotionLess(int x, int y, int lvl);
-
-	public abstract E findMobile(int level);
+	public abstract Point findMobile(int lvl, String mobile);
 
 }

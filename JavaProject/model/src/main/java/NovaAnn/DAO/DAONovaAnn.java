@@ -1,12 +1,17 @@
 package NovaAnn.DAO;
 
+import java.awt.Point;
 import java.sql.CallableStatement;
 import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
+import NovaAnn.NovaAnnWorld;
 
-class DAONovaAnn extends DAOEntity<NovaAnnWorld> {
+
+public class DAONovaAnn extends DAOEntity<NovaAnnWorld> {
+
+	private Point position;
 
 	/**
 	 * Instantiates a new DAO hello world.
@@ -48,8 +53,7 @@ class DAONovaAnn extends DAOEntity<NovaAnnWorld> {
 	 * @see model.DAOEntity#find(int)
 	 */
 	@Override
-	public <NovaAnnWorld> NovaAnnWorld findMotionLess(final int x, final int y,final int lvl) {
-		NovaAnnWorld novaAnnWorld = new NovaAnnWorld();
+	public  char findMotionLess(final int x, final int y,final int lvl) {
 
 		try {
 			final String sql = "{call WhatIsHere(?,?,?)}";
@@ -60,13 +64,12 @@ class DAONovaAnn extends DAOEntity<NovaAnnWorld> {
 			call.execute();
 			final ResultSet resultSet = call.getResultSet();
 			if (resultSet.first()) {
-				novaAnnWorld = new NovaAnnWorld(resultSet.getInt("MotionLessSymbol"), x, y);
+				return resultSet.getString("MotionLessSymbol").charAt(0);
 			}
-			return novaAnnWorld;
 		} catch (final SQLException e) {
 			e.printStackTrace();
 		}
-		return null;
+		return ' ';
 	}
 
 	/*
@@ -74,20 +77,22 @@ class DAONovaAnn extends DAOEntity<NovaAnnWorld> {
 	 *
 	 * @see model.DAOEntity#find(java.lang.String)
 	 */
+	
 	@Override
-	public NovaAnn.NovaAnnWorld findMobile(final int lvl) {
-		NovaAnn.NovaAnnWorld novaAnnWorld = new NovaAnn.NovaAnnWorld();
+	public Point findMobile(final int lvl, final String mobile) {
 
+		position.setLocation(0, 0);
 		try {
-			final String sql = "{call WhatIsHere(?)}";
+			final String sql = "{call WhereIsMobileSpawning(?,?)}";
 			final CallableStatement call = this.getConnection().prepareCall(sql);
 			call.setInt(1, lvl);
+			call.setString(2, mobile);
 			call.execute();
 			final ResultSet resultSet = call.getResultSet();
 			if (resultSet.first()) {
-				novaAnnWorld = new NovaAnn.NovaAnnWorld(resultSet.getInt("MotionLessSymbol"), resultSet.getInt("x"), resultSet.getInt("y"));
+				position.setLocation(resultSet.getInt("x"), resultSet.getInt("y"));
+				return position;
 			}
-			return novaAnnWorld;
 		} catch (final SQLException e) {
 			e.printStackTrace();
 		}

@@ -20,5 +20,10 @@ public class MotionLessElement  extends Element implements /*IDoActionOnHeroes,*
 	public ActionOnHeroes getActionOnHeroes() {
 		return ActionOnHeroes.NOP; 
 	}
+
+	public static MotionLessElement getfileSymbole(char c) {
+		// TODO Auto-generated method stub
+		return null;
+	}
 	
 }
