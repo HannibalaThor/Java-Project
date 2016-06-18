@@ -6,7 +6,7 @@ import java.awt.Image;
 import NovaAnn.INovaAnnWorld;
 
 
-public abstract class Element /*implements ISquare*/ {
+public abstract class Element implements IDoActionOnHeroes {
 	private ISprite				sprite;
 	private Permeability	permeability;
 	private INovaAnnWorld	novaAnnWorld;
@@ -44,4 +44,9 @@ public abstract class Element /*implements ISquare*/ {
 	public Image getImage() {
 		return this.getSprite().getImage();
 	}
+	
+	public ActionOnHeroes getActionOnHeroes(){
+		return ActionOnHeroes.NOP;
+	}
+	
 }

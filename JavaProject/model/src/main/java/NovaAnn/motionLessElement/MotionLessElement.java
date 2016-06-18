@@ -1,5 +1,6 @@
 package NovaAnn.motionLessElement;
 
+import NovaAnn.element.ActionOnHeroes;
 import NovaAnn.element.Element;
 import NovaAnn.element.ISprite;
 import NovaAnn.element.Permeability;

@@ -25,8 +25,8 @@ public class NovaAnnWorld extends Observable implements INovaAnnWorld{
 		return height;
 	}
 
-	public NovaAnnWorld(String fileName)throws IOException{
-		this.loadFile(fileName); 
+	public NovaAnnWorld()throws IOException{
+		this.loadFile(); 
 	}
 	
 	public void addElement(MotionLessElement element, int x, int y){
@@ -63,7 +63,7 @@ public class NovaAnnWorld extends Observable implements INovaAnnWorld{
 		return mobiles;
 	}
 	
-	private void loadFile(String fileName){
+	private void loadFile(){
 		// Database with Clement
 	}
 

@@ -102,4 +102,6 @@ public abstract class Mobile extends Element {
 			this.setY(this.getY() + 1);
 		}
 	}
+	
+	
 }

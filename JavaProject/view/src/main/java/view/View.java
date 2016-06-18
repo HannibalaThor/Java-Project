@@ -40,7 +40,7 @@ public class View implements IView, Runnable {
 	protected static ControllerOrder keyCodeToControllerOrder(final int keyCode) {
 		switch (keyCode) {
 			case KeyEvent.VK_G:
-				return ControllerOrder.English;
+				return ControllerOrder.English; 
 			case KeyEvent.VK_F:
 				return ControllerOrder.Francais;
 			case KeyEvent.VK_D:
@@ -49,7 +49,7 @@ public class View implements IView, Runnable {
 				return ControllerOrder.Indonesia;
 			default:
 				return ControllerOrder.English;
-		}
+		} 
 	}
 
 	/*

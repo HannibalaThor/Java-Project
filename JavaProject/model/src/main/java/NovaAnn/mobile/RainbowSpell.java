@@ -1,6 +1,7 @@
 package NovaAnn.mobile;
 
 
+import NovaAnn.element.ActionOnHeroes;
 import NovaAnn.element.Sprite;
 
 public class RainbowSpell extends Mobile {
@@ -10,11 +11,15 @@ public class RainbowSpell extends Mobile {
 		super(new Sprite("RainbowSpell.jpg"));
 	}
 
-
 	public static synchronized RainbowSpell getRainbowSpell() {
 		if (INSTANCE == null) {
 			INSTANCE = new RainbowSpell();
 		}
 		return INSTANCE;
 	}
+	
+	public ActionOnHeroes getActionOnHeroes(){
+		return ActionOnHeroes.COLLECT;
+	}
+	
 }

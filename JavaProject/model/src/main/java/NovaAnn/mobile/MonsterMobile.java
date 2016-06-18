@@ -1,5 +1,6 @@
 package NovaAnn.mobile;
 
+import NovaAnn.element.ActionOnHeroes;
 import NovaAnn.element.ISprite;
 
 public class MonsterMobile extends Mobile {
@@ -13,4 +14,9 @@ public class MonsterMobile extends Mobile {
 	public char getFileSymbol() {
 		return this.fileSymbol;
 	}
+	
+	public ActionOnHeroes getActionOnHeroes(){
+		return ActionOnHeroes.DEATH;
+	}
+	
 }

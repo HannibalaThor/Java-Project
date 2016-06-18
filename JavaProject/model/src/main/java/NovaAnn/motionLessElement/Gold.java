@@ -1,5 +1,6 @@
 package NovaAnn.motionLessElement;
 
+import NovaAnn.element.ActionOnHeroes;
 import NovaAnn.element.Permeability;
 import NovaAnn.element.Sprite;
 
@@ -20,4 +21,9 @@ public class Gold extends MotionLessElement implements ICollect {
 	public void setCollected(boolean in){
 		this.collected = in;
 	}
+	
+	public ActionOnHeroes getActionOnHeroes(){
+		return ActionOnHeroes.COLLECT;
+	}
+	
 }

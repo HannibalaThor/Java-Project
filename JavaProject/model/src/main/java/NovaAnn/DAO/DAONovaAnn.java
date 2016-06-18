@@ -5,6 +5,7 @@ import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
+import NovaAnn.NovaAnnWorld;
 
 class DAONovaAnn extends DAOEntity<NovaAnnWorld> {
 

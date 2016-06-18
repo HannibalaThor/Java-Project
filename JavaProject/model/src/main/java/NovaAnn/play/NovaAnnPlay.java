@@ -3,33 +3,29 @@ package NovaAnn.play;
 import java.io.IOException;
 
 import NovaAnn.INovaAnnWorld;
-import NovaAnn.NovaAnnWorld;
+import NovaAnn.element.IDoActionOnHeroes;
 
 public class NovaAnnPlay implements IOrderPerformed{
 	private INovaAnnWorld novaAnnWorld;
-	private INovaAnnWorld novaAnnMeeting;
-	private INovaAnnFrame novaAnnFrame;
+	//private INovaAnnFrame novaAnnFrame;
 	private int playMode;
 	
 	public NovaAnnPlay(INovaAnnWorld novaAnnWorld){
-		
+		this.novaAnnWorld = novaAnnWorld;
+		//this.novaAnnWorld.addMobile(new Hero(), 15, 15);
 	}
-	
+	 
 	public INovaAnnWorld getNovaAnnWorld(){
 		return novaAnnWorld;
 	}
 	
-	public INovaAnnFrame getNovaAnnFrame(){
-		return novaAnnFrame;
-	}
-	
-	public INovaAnnWorld getNovaAnnMeeting(){
-		return novaAnnMeeting;
-	}
+//	public INovaAnnFrame getNovaAnnFrame(){
+	//	return novaAnnFrame;
+	//}
 	 
-	public void setNovaAnnFrame(INovaAnnFrame novaAnnFrame){
-		this.novaAnnFrame = novaAnnFrame;
-	}
+	//public void setNovaAnnFrame(INovaAnnFrame novaAnnFrame){
+	//	this.novaAnnFrame = novaAnnFrame;
+	//}
 	
 	public void setPlayMode(int playMode){
 		this.playMode = playMode;
@@ -39,47 +35,72 @@ public class NovaAnnPlay implements IOrderPerformed{
 		return playMode;
 	}
 
-	public INovaAnnWorld getActualNovaAnnWorld(){
-		// Waiting
-	}
-	
 	public void orderPerform(UserOrder userOrder) throws IOException{
 		switch (userOrder) {
 		case UP: 
-			this.getActualNovaAnnWorld().getHero().moveUp();
+			//this.getActualNovaAnnWorld().getHero().moveUp();
 			break;
 		case RIGHT:
-			this.getActualNovaAnnWorld().getHero().moveRight();
+			this.getNovaAnnWorld().getHero().moveRight();
 			break;
 		case DOWN:
-			this.getActualNovaAnnWorld().getHero().moveDown();
+			this.getNovaAnnWorld().getHero().moveDown();
 			break;
 		case LEFT:
-			this.getActualNovaAnnWorld().getHero().moveLeft();
+			this.getNovaAnnWorld().getHero().moveLeft();
 			break;
 		case DOWNLEFT:
-			this.getActualNovaAnnWorld().getHero().moveDownLeft();
+			this.getNovaAnnWorld().getHero().moveDownLeft();
 			break;
 		case DOWNRIGHT:
-			this.getActualNovaAnnWorld().getHero().moveDownRight();
+			this.getNovaAnnWorld().getHero().moveDownRight();
 			break;
 		case UPLEFT:
-			this.getActualNovaAnnWorld().getHero().moveUpLeft();
+			this.getNovaAnnWorld().getHero().moveUpLeft();
 			break;
 		case UPRIGHT:
-			this.getActualNovaAnnWorld().getHero().moveUpRight();
+			this.getNovaAnnWorld().getHero().moveUpRight();
 			break;
 		case NOP:
 		default:
 			break;
 		}
-	}
-
-	public void exitMeeting(){
+		this.getWorldAnswer();
 	}
 	
-	public void setNovaAnnMeeting(INovaAnnWorld novaAnnMeeting){
+	private void resolveEnd() throws IOException {
 		
+	}
+	
+	private void resolveDeath() throws IOException {
+		
+	}
+
+	private void resolveCollect() throws IOException {
+		
+	}
+	
+	
+	public void getWorldAnswer() throws IOException {
+		final IDoActionOnHeroes element =  this.getNovaAnnWorld().getElements(
+		this.getNovaAnnWorld().getHero().getX(), this.getNovaAnnWorld().getHero().getY());
+
+		switch (element.getActionOnHeroes()) {
+		case DEATH:
+			//ViewFrame.displayMessage("You're dead.");
+			this.resolveDeath();
+			break;
+		case COLLECT:
+			this.resolveCollect();
+			break;
+		case END:
+			//ViewFrame.displayMessage("You reached the door, you won.");
+			this.resolveEnd();
+			break;
+		case NOP:
+		default:
+			break;
+		}
 	}
 	
 }

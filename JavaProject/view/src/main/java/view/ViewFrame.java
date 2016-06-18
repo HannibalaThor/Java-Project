@@ -171,4 +171,8 @@ class ViewFrame extends JFrame implements KeyListener {
 	public void keyReleased(final KeyEvent e) {
 
 	}
+	
+	public static void displayMessage(final String message) {
+		//JOptionPane.showMessageDialog(null, message);
+	}
 }
