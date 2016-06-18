@@ -1,6 +1,5 @@
 package NovaAnn.DAO;
 
-import java.awt.Point;
 import java.sql.Connection;
 import java.sql.SQLException;
 
@@ -51,6 +50,6 @@ abstract class DAOEntity<E extends Entity> {
 	
 	public abstract char findMotionLess(int x, int y, int lvl);
 
-	public abstract Point findMobile(int lvl, String mobile);
+	public abstract void findMobile(int lvl, int mobile);
 
 }

@@ -11,7 +11,7 @@ import NovaAnn.mobile.Mobile;
 import NovaAnn.mobile.MonsterMobile;
 
 
-public class MotionLessElement  extends Element implements IDoActionOnHeroes, IMotionLessElement{
+public class MotionLessElement  extends Element implements /*IDoActionOnHeroes,*/ IMotionLessElement{
 	private final char fileSymbol;
 	
 	public MotionLessElement(final ISprite sprite, final Permeability permeability, final char fileSymbol) {
@@ -23,10 +23,10 @@ public class MotionLessElement  extends Element implements IDoActionOnHeroes, IM
 		return this.fileSymbol;
 	}
 	
-@Override
+/*@Override
 	public ActionOnHeroes getActionOnHeroes() {
 		return ActionOnHeroes.NOP; 
-	}
+	}*/
 
 	public static MotionLessElement getfileSymbole(char c) {
 		// TODO Auto-generated method stub

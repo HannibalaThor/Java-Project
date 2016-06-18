@@ -10,10 +10,10 @@ public class NovaAnn {
 	private final INovaAnnWorld	novaAnnWorld;
 	private final NovaAnnPlay		novaAnnPlay;
 	
-	public NovaAnn() throws IOException, SQLException{
-
-		this.novaAnnWorld = new NovaAnnWorld();
-		this.novaAnnPlay = new NovaAnnPlay(this.novaAnnWorld);
+	public NovaAnn(int lvl) throws IOException, SQLException{
+		
+		this.novaAnnWorld = new NovaAnnWorld(lvl);
+		this.novaAnnPlay = new NovaAnnPlay(this.novaAnnWorld, lvl);
 	}
 	
 	public void Play(){

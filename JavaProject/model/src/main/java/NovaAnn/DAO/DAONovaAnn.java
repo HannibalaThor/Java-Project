@@ -1,6 +1,5 @@
 package NovaAnn.DAO;
 
-import java.awt.Point;
 import java.sql.CallableStatement;
 import java.sql.Connection;
 import java.sql.ResultSet;
@@ -12,7 +11,10 @@ import NovaAnn.NovaAnnWorld;
 
 public class DAONovaAnn extends DAOEntity<NovaAnnWorld> {
 
-	private Point position;
+
+
+	private int x;
+	private int y;
 
 	/**
 	 * Instantiates a new DAO hello world.
@@ -80,25 +82,36 @@ public class DAONovaAnn extends DAOEntity<NovaAnnWorld> {
 	 */
 	
 	@Override
-	public Point findMobile(final int lvl, final String mobile) {
-
-		position.setLocation(0, 0);
+	public void findMobile(final int lvl, final int mobile) {
 		try {
 			final String sql = "{call WhereIsMobileSpawning(?,?)}";
 			final CallableStatement call = this.getConnection().prepareCall(sql);
 			call.setInt(1, lvl);
-			call.setString(2, mobile);
+			call.setInt(2, mobile);
 			call.execute();
 			final ResultSet resultSet = call.getResultSet();
-			if (resultSet.first()) {
-				position.setLocation(resultSet.getInt("x"), resultSet.getInt("y"));
-				return position;
+			if (resultSet.first() != false) {
+				this.x = resultSet.getInt("x");
+				this.y = resultSet.getInt("y");
+			}
+			else{
+				this.x = 0;
+				this.y = 0;
 			}
 		} catch (final SQLException e) {
 			e.printStackTrace();
 		}
-		return null;
 	}
+
+	public int getX() {
+		return x;
+	}
+
+
+	public int getY() {
+		return y;
+	}
+
 
 
 

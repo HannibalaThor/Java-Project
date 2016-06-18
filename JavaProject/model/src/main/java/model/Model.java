@@ -5,8 +5,9 @@ import java.sql.SQLException;
 import java.util.Observable;
 
 import NovaAnn.NovaAnn;
+import contract.IModel;
 
-public class Model extends Observable {
+public class Model extends Observable implements IModel {
 
 
 
@@ -15,8 +16,8 @@ public class Model extends Observable {
 	 * @throws IOException 
 	 * @throws SQLException 
 	 */
-	public Model() throws IOException, SQLException {
-		new NovaAnn();
+	public Model(int lvl) throws IOException, SQLException {
+		new NovaAnn(lvl);
 	}
 
 	/*
@@ -26,5 +27,15 @@ public class Model extends Observable {
 	 */
 	public Observable getObservable() {
 		return this;
+	}
+
+	public String getMessage() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	public void loadMessage(String key) {
+		// TODO Auto-generated method stub
+		
 	}
 }

@@ -10,9 +10,11 @@ import java.sql.Connection;
 import NovaAnn.DAO.DAONovaAnn;
 import NovaAnn.DAO.DBConnection;
 import NovaAnn.DAO.Entity;
+import NovaAnn.mobile.Butterfly;
 import NovaAnn.mobile.Hero;
 import NovaAnn.mobile.Mobile;
 import NovaAnn.mobile.MonsterMobile;
+import NovaAnn.mobile.Skeletor;
 import NovaAnn.motionLessElement.MotionLessELements;
 import NovaAnn.motionLessElement.MotionLessElement;
 
@@ -22,12 +24,13 @@ import NovaAnn.motionLessElement.MotionLessElement;
 public class NovaAnnWorld extends Entity implements INovaAnnWorld, GObserver{
 	
 	public  MotionLessElement				elements[][];
+	public  final ArrayList<Mobile>	mobiles;
 	DAONovaAnn daoNovaAnn;
 	private int width;
 	private int height;
 	//private int point = 0;
-	public ArrayList<Mobile> mobiles;
 	private Hero hero;
+	
 	
 	public int getWidth(){
 		return width;
@@ -37,8 +40,8 @@ public class NovaAnnWorld extends Entity implements INovaAnnWorld, GObserver{
 		return height;
 	}
 
-	public NovaAnnWorld()throws IOException, SQLException{
-		int lvl = 1;
+	public NovaAnnWorld(int lvl)throws IOException, SQLException{
+		this.mobiles = new ArrayList<Mobile>();
 		DBConnection dbConnection = new DBConnection();
 		Connection connection = dbConnection.getConnection();
 		daoNovaAnn = new DAONovaAnn(connection);
@@ -54,18 +57,10 @@ public class NovaAnnWorld extends Entity implements INovaAnnWorld, GObserver{
 		}
 	}
 	
-	public void addMobile(Hero hero, int x, int y){
-		this.mobiles.add(hero);
-		hero.setNovaAnnWorld(this, x, y);
-		this.setChanged();
-		this.notifyObservers();
-	}
-	
-	public void addMonster(Mobile monster, int x, int y) {
-		this.mobiles.add(monster);
-		monster.setNovaAnnWorld(this, x, y);
-		this.setChanged();
-		this.notifyObservers();
+	public void addMobile(final Mobile mobile, final int x, final int y) {
+		this.mobiles.add(mobile);
+		mobile.setNovaAnnWorld(this, x, y);
+		System.out.print(mobile.getSprite());
 	}
 	
 	public MotionLessElement getElements(int x, int y) {
@@ -108,6 +103,7 @@ public class NovaAnnWorld extends Entity implements INovaAnnWorld, GObserver{
 			end = false;
 		}
 		}
+		//this.setChanged();
 	}
 
 	public void setMobileHasChanged(){

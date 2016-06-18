@@ -3,15 +3,11 @@ package main;
 import java.io.IOException;
 import java.sql.SQLException;
 
-import controller.Controller;
+import contract.IModel;
 import model.Model;
-import view.View;
 
-/**
- * The Class Main.
- *
- * @author Jean-Aymeric Diet
- */
+
+
 public abstract class Main {
 
 	/**
@@ -23,10 +19,11 @@ public abstract class Main {
 	 * @throws SQLException 
 	 */
 	public static void main(final String[] args) throws IOException, SQLException {
-		final Model model = new Model();
-		//final View view = new View(model);
-		//final Controller controller = new Controller(view, model);
-		//view.setController(controller);
-		//controller.control();
+		int lvl = 5;
+		final IModel model = new Model(lvl);
+		final View view = new View(model);
+		final Controller controller = new Controller(view, model);
+		view.setController(controller);
+		controller.control();
 	}
 }

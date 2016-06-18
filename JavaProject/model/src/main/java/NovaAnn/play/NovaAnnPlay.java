@@ -1,10 +1,16 @@
 package NovaAnn.play;
 
+import java.awt.Point;
 import java.io.IOException;
+import java.sql.Connection;
+import java.sql.SQLException;
 
 import NovaAnn.INovaAnnWorld;
 import NovaAnn.NovaAnnWorld;
 import NovaAnn.DAO.DAONovaAnn;
+import NovaAnn.DAO.DBConnection;
+import NovaAnn.mobile.Hero;
+import NovaAnn.mobile.Skeletor;
 
 public class NovaAnnPlay implements IOrderPerformed{
 	private INovaAnnWorld novaAnnWorld;
@@ -12,14 +18,24 @@ public class NovaAnnPlay implements IOrderPerformed{
 	//private INovaAnnFrame novaAnnFrame;
 	DAONovaAnn daoNovaAnn;
 	private int playMode;
+
 	
-	public NovaAnnPlay(INovaAnnWorld novaAnnWorld){
+	public NovaAnnPlay(INovaAnnWorld novaAnnWorld, int lvl) throws SQLException{
+		DBConnection dbConnection = new DBConnection();
+		Connection connection = dbConnection.getConnection();
+		daoNovaAnn = new DAONovaAnn(connection);
 	this.novaAnnWorld = novaAnnWorld;
-	int lvl = 1;
-	
-	
-	for(int id = 0; id>4; id++){
-		this.novaAnnWorld.addMobile(MobileElement.tableElement[id], daoNovaAnn.findMobile(lvl, MobileElement.tableString[id]).x,daoNovaAnn.findMobile(lvl, MobileElement.tableString[id]).y);
+	boolean end = true;
+	int id = 0;
+	while(end){
+		id++;
+		daoNovaAnn.findMobile(lvl, id);
+		if (daoNovaAnn.getX() != 0 && daoNovaAnn.getY() != 0){
+		this.novaAnnWorld.addMobile(MotionElement.getElement(id), daoNovaAnn.getX() , daoNovaAnn.getY());
+		}
+		if (id > 4){
+			end = false;
+		}
 	}
 	
 	}
