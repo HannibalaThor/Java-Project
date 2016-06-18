@@ -2,6 +2,8 @@ package NovaAnn.element;
 
 import org.junit.*;
 
+import NovaAnn.world.element.Element;
+
 
 public class ElementTest {
 	private Element element;
