@@ -3,7 +3,7 @@ package javaproject.novaann.world.element;
 import java.awt.Image;
 
 import aedt.showboard.ISquare;
-import javaproject.nettle.world.INettleWorld;
+import javaproject.novaann.world.INovaAnnWorld;
 
 public abstract class Element implements ISquare {
 	private ISprite				sprite;
@@ -39,7 +39,7 @@ public abstract class Element implements ISquare {
 		this.novaAnnWorld = novaAnnWorld;
 	}
 
-	@Override
+	//@Override
 	public Image getImage() {
 		return this.getSprite().getImage();
 	}

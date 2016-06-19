@@ -5,7 +5,7 @@ import java.util.concurrent.TimeUnit;
 import javaproject.novaann.world.NovaAnnWorld;
 
 public class AISkeletor implements IStrategy {
-	@Override
+	//@Override
 	public void animate(Mobile mobile){
 		try {
 			int xL = NovaAnnWorld.getXhero();

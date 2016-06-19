@@ -20,7 +20,7 @@ public abstract class Mobile extends Element implements IPawn {
 		this.lastPosition.setLocation(this.getPosition().x, this.getPosition().y);
 	}
 
-	@Override
+	//@Override
 	public int getX() {
 		return this.position.x;
 	}
@@ -32,7 +32,7 @@ public abstract class Mobile extends Element implements IPawn {
 		}
 	}
 
-	@Override
+	//@Override
 	public int getY() {
 		return this.position.y;
 	}
@@ -44,7 +44,7 @@ public abstract class Mobile extends Element implements IPawn {
 		}
 	}
 
-	@Override
+	//@Override
 	public Point getPosition() {
 		return this.position;
 	}

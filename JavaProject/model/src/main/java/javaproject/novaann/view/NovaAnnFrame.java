@@ -41,7 +41,7 @@ public class NovaAnnFrame extends JFrame implements KeyListener, INovaAnnFrame {
 		return this.novaAnnPlay;
 	}
 
-	@Override
+	//@Override
 	public void setMeeting(final INovaAnnWorld novaAnnWorld) {
 		if (this.meetingPanel != null) {
 			this.novaAnnCardView.removeLayoutComponent(this.meetingPanel);
@@ -56,7 +56,7 @@ public class NovaAnnFrame extends JFrame implements KeyListener, INovaAnnFrame {
 		this.mapPanel.setCenter(center);
 	}
 
-	@Override
+	//@Override
 	public void setViewMode(final int viewMode) {
 		switch (viewMode) {
 		case NovaAnnView.VIEW_MODE_MEETING:
@@ -70,7 +70,7 @@ public class NovaAnnFrame extends JFrame implements KeyListener, INovaAnnFrame {
 		}
 	}
 
-	@Override
+	//@Override
 	public void keyPressed(final KeyEvent keyEvent) {
 		try {
 			this.getNovaAnnPlay().orderPerform(NovaAnnView.keyCodeToUserOrder(keyEvent.getKeyCode()));
@@ -79,11 +79,11 @@ public class NovaAnnFrame extends JFrame implements KeyListener, INovaAnnFrame {
 		}
 	}
 
-	@Override
+	//@Override
 	public void keyReleased(final KeyEvent arg0) {
 	}
 
-	@Override
+	//@Override
 	public void keyTyped(final KeyEvent arg0) {
 	}
 }

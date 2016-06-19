@@ -36,17 +36,17 @@ public class NovaAnnWorld extends Observable implements INovaAnnWorld {
 		this.loadFile(fileName);
 	}
 
-	@Override
+	//@Override
 	public int getWidth() {
 		return this.width;
 	}
 
-	@Override
+	//@Override
 	public int getHeight() {
 		return this.height;
 	}
 
-	@Override
+	//@Override
 	public MotionlessElement getElements(final int x, final int y) {
 		if ((x < 0) || (y < 0) || (x >= this.getWidth()) || (y >= this.getHeight())) {
 			return null;
@@ -54,7 +54,7 @@ public class NovaAnnWorld extends Observable implements INovaAnnWorld {
 		return this.elements[x][y];
 	}
 
-	@Override
+	//@Override
 	public Hero getHero() {
 		return this.hero;
 	}
@@ -67,8 +67,7 @@ public class NovaAnnWorld extends Observable implements INovaAnnWorld {
 		this.setChanged();
 	}
 
-	//	@Override
-	@Override
+	//@Override
 	public void addMobile(final MonsterMobile mobile, int x, final int y) {
 		this.mobiles.add(mobile);
 		this.mobilesTest.add(mobile);
@@ -77,7 +76,7 @@ public class NovaAnnWorld extends Observable implements INovaAnnWorld {
 		this.notifyObservers();
 	}
 
-	@Override
+	//@Override
 	public void addMobile(final Hero hero, final int x, final int y) {
 		this.setHero(hero);
 		this.mobiles.add(hero);
@@ -88,7 +87,7 @@ public class NovaAnnWorld extends Observable implements INovaAnnWorld {
 
 	private void loadFile(final String fileName) throws IOException {
 		final BufferedReader buffer = new BufferedReader(new InputStreamReader(new FileInputStream(fileName)));
-		String line;
+		String line = null;
 		int numLine = 0;
 		this.width = Integer.parseInt(line);
 		line = buffer.readLine();
@@ -110,28 +109,28 @@ public class NovaAnnWorld extends Observable implements INovaAnnWorld {
 		this.setChanged();
 	}
 
-	@Override
+	//@Override
 	public void setMobileHasChanged() {
 		this.setChanged();
 		this.notifyObservers();
 	}
 
-	@Override
+	//@Override
 	public void notifyObservers() {
 		super.notifyObservers();
 	}
 
-	@Override
+	//@Override
 	public Element[][] getElements() {
 		return this.elements;
 	}
 
-	@Override
+	//@Override
 	public ArrayList<MonsterMobile> getMobiles() {
 		return this.mobilesTest;
 	}
 
-	@Override
+	//@Override
 	public ArrayList<Mobile> getMobilesM() {
 		return this.mobiles;
 	}
@@ -143,7 +142,7 @@ public class NovaAnnWorld extends Observable implements INovaAnnWorld {
 		return hero.getY();
 	}
 
-	@Override
+	//@Override
 	public void death(){
 
 

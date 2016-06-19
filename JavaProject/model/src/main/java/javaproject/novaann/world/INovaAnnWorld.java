@@ -1,5 +1,14 @@
 package javaproject.novaann.world;
 
+import java.util.ArrayList;
+import java.util.Observer;
+
+import javaproject.novaann.world.element.Element;
+import javaproject.novaann.world.element.mobile.Hero;
+import javaproject.novaann.world.element.mobile.Mobile;
+import javaproject.novaann.world.element.mobile.MonsterMobile;
+import javaproject.novaann.world.element.motionless.MotionlessElement;
+
 public interface INovaAnnWorld {
 
 	public int getWidth();

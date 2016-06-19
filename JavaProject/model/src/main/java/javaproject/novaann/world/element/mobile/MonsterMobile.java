@@ -17,7 +17,7 @@ public class MonsterMobile extends Mobile implements IMonsterMobile {
 		return this.fileSymbol;
 	}
 
-	@Override
+	//@Override
 	public void getAnimate(MonsterMobile mobile) {
 		// TODO Auto-generated method stub
 		this.context.executeStrategy(mobile);

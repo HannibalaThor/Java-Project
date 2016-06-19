@@ -16,7 +16,7 @@ public abstract class MotionlessElement extends Element implements IDoActionOnHe
 		return this.fileSymbol;
 	}
 
-	@Override
+	//@Override
 	public ActionOnHeroes getActionOnHeroes() {
 		return ActionOnHeroes.NOP;
 	}
