@@ -1,4 +1,4 @@
-package model.javaproject.novaann.world.element.motionless;
+package contract;
 
 public enum ActionOnHeroes {
 	NOP, ENTER_CAMP, ENTER_TOWN, ENTER_MONASTERY, EXIT, ESCAPE

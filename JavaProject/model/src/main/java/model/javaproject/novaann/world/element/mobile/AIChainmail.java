@@ -2,6 +2,8 @@ package model.javaproject.novaann.world.element.mobile;
 
 import java.util.Random;
 
+import contract.IMonsterMobile;
+
 public class AIChainmail implements IStrategy {
 	public void animate(Mobile mobile){
 		int xM = mobile.getX();
@@ -53,5 +55,10 @@ public class AIChainmail implements IStrategy {
 				}
 			}
 		}
+	}
+
+	public void animate(IMonsterMobile mobile) {
+		// TODO Auto-generated method stub
+		
 	}
 }

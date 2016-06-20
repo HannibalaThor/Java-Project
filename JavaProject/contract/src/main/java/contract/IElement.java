@@ -2,8 +2,10 @@ package contract;
 
 import java.awt.Image;
 
+import aedt.showboard.ISquare;
 
-public interface IElement<Permeability> {
+
+public interface IElement extends ISquare{
 
 	ISprite getSprite();
 

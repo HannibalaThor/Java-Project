@@ -1,6 +1,7 @@
 package view;
 
 import java.awt.Dimension;
+
 import java.awt.Point;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
@@ -8,9 +9,9 @@ import java.io.IOException;
 
 import javax.swing.JFrame;
 
-import contract.INobaAnnView;
 import contract.INovaAnnFrame;
 import contract.INovaAnnPlay;
+import contract.INovaAnnView;
 import contract.INovaAnnWorld;
 
 
@@ -60,10 +61,10 @@ public class NovaAnnFrame extends JFrame implements KeyListener, INovaAnnFrame {
 
 	public void setViewMode(final int viewMode) {
 		switch (viewMode) {
-		case INobaAnnView.VIEW_MODE_MEETING:
+		case INovaAnnView.VIEW_MODE_MEETING:
 			this.novaAnnCardView.show(this.getContentPane(), "MEETING");
 			break;
-		case INobaAnnView.VIEW_MODE_MAP:
+		case INovaAnnView.VIEW_MODE_MAP:
 			this.novaAnnCardView.show(this.getContentPane(), "MAP");
 			break;
 		default:

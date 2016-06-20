@@ -1,5 +1,6 @@
 package model.javaproject.novaann.world.element.mobile;
 
+import contract.IMonsterMobile;
 import model.javaproject.novaann.world.NovaAnnWorld;
 
 public class AISkeletor implements IStrategy {
@@ -105,6 +106,11 @@ public class AISkeletor implements IStrategy {
 				mobile.moveLeftM();
 			}
 		}
+	}
+
+	public void animate(IMonsterMobile mobile) {
+		// TODO Auto-generated method stub
+		
 	}
 }
 

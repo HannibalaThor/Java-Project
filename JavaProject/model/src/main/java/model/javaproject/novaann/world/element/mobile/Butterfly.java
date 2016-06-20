@@ -1,6 +1,6 @@
 package model.javaproject.novaann.world.element.mobile;
 
-import model.javaproject.novaann.world.element.Permeability;
+import contract.Permeability;
 import model.javaproject.novaann.world.element.Sprite;
 
 public class Butterfly extends MonsterMobile {

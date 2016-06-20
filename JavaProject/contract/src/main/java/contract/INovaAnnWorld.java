@@ -15,26 +15,28 @@ public interface INovaAnnWorld {
 
 	public void setScore(int score);
 
-	public MotionlessElement getElements(int x, int y);
+	public IMotionlessElement getElements(int x, int y);
 
-	public Hero getHero();
+	public IHero getHero();
 
-	public void addMobile(final MonsterMobile mobile, int x, final int y);
+	public void addMobile(final IMonsterMobile mobile, int x, final int y);
 
-	public void addMobile(Hero hero, int x, int y);
+	public void addMobile(IHero hero, int x, int y);
 
 	public void setMobileHasChanged();
 
-	public Element[][] getElements();
+	public IElement[][] getElements();
 
-	public ArrayList<MonsterMobile> getMobiles();
+	public ArrayList<IMonsterMobile> getMobiles();
 
 	public void addObserver(Observer o);
 
-	public ArrayList<Mobile> getMobilesM();
+	public ArrayList<IMobile> getMobilesM();
 
 	public void death();
 
 	public void destructCollected();
+	
+	public Observer getScoreScore();
 
 }

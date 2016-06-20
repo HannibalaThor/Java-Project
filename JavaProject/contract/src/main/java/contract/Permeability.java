@@ -1,4 +1,4 @@
-package model.javaproject.novaann.world.element;
+package contract;
 
 public enum Permeability {
 	BLOCKING, PENETRABLE;

@@ -2,6 +2,7 @@ package model.javaproject.novaann.world.element.mobile;
 
 import java.util.Random;
 
+import contract.IMonsterMobile;
 import model.javaproject.novaann.world.NovaAnnWorld;
 
 public class AIStormtrooper implements IStrategy {
@@ -138,5 +139,10 @@ public class AIStormtrooper implements IStrategy {
 				}
 			}
 		}
+	}
+
+	public void animate(IMonsterMobile mobile) {
+		// TODO Auto-generated method stub
+		
 	}
 }

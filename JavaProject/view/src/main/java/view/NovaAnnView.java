@@ -3,10 +3,11 @@ import java.awt.event.KeyEvent;
 
 import javax.swing.JOptionPane;
 
-import contract.INobaAnnView;
+import contract.INovaAnnView;
+import contract.UserOrder;
 
 
-public abstract class NovaAnnView implements INobaAnnView {
+public abstract class NovaAnnView implements INovaAnnView {
 	public static int				MAP_ZOOM					= 10;
 	public static int				MEETING_ZOOM			= 4;
 	public static UserOrder keyCodeToUserOrder(final int keyCode) {

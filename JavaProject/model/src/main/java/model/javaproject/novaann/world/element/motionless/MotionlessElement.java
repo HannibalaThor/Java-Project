@@ -1,9 +1,11 @@
 package model.javaproject.novaann.world.element.motionless;
+import contract.IMotionlessElement;
+import contract.INovaAnnWorld;
 import contract.ISprite;
+import contract.Permeability;
 import model.javaproject.novaann.world.element.Element;
-import model.javaproject.novaann.world.element.Permeability;
 
-public abstract class MotionlessElement extends Element implements IDoActionOnHeroes {
+public abstract class MotionlessElement extends Element implements IMotionlessElement {
 	private final char fileSymbol;
 	private boolean collected;
 	protected ObservableGold observer;
@@ -14,23 +16,27 @@ public abstract class MotionlessElement extends Element implements IDoActionOnHe
 		this.fileSymbol = fileSymbol;
 		this.collected = collected;
 		this.observer = new ObservableGold();
-	}
+		}
 
+	/* (non-Javadoc)
+	 * @see model.javaproject.novaann.world.element.motionless.IMotionlessElement#getFileSymbol()
+	 */
 	public char getFileSymbol() {
 		return this.fileSymbol;
 	}
 
+	/* (non-Javadoc)
+	 * @see model.javaproject.novaann.world.element.motionless.IMotionlessElement#isCollected()
+	 */
 	public boolean isCollected(){
 		return this.collected;
 	}
 
+	/* (non-Javadoc)
+	 * @see model.javaproject.novaann.world.element.motionless.IMotionlessElement#setCollected(boolean)
+	 */
 	public void setCollected(boolean collected){
 		this.collected = collected;
 		this.observer.notifyObserver(650);
-	}
-
-	//@Override
-	public ActionOnHeroes getActionOnHeroes() {
-		return ActionOnHeroes.NOP;
 	}
 }

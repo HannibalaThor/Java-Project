@@ -2,10 +2,12 @@ package model.javaproject.novaann.world.element;
 
 import java.awt.Image;
 
+import aedt.showboard.IPawn;
 import aedt.showboard.ISquare;
 import contract.IElement;
 import contract.INovaAnnWorld;
 import contract.ISprite;
+import contract.Permeability;
 
 
 public abstract class Element implements ISquare, IElement {

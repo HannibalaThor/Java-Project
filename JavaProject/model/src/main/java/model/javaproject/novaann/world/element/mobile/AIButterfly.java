@@ -1,5 +1,6 @@
 package model.javaproject.novaann.world.element.mobile;
 
+import contract.IMonsterMobile;
 import model.javaproject.novaann.world.NovaAnnWorld;
 
 public class AIButterfly implements IStrategy {
@@ -102,5 +103,10 @@ public class AIButterfly implements IStrategy {
 				mobile.moveUpM();
 			}
 		}
+	}
+
+	public void animate(IMonsterMobile mobile) {
+		// TODO Auto-generated method stub
+		
 	}
 }

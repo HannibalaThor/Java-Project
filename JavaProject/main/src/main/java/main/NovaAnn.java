@@ -8,6 +8,7 @@ import javax.swing.SwingUtilities;
 import contract.INovaAnnFrame;
 import contract.INovaAnnPlay;
 import contract.INovaAnnWorld;
+import model.javaproject.novaann.play.NovaAnnPlay;
 import model.javaproject.novaann.world.NovaAnnWorld;
 import view.NovaAnnFrame;
 

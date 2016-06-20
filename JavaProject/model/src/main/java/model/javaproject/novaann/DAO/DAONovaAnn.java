@@ -1,6 +1,7 @@
 package model.javaproject.novaann.DAO;
 
 import java.sql.CallableStatement;
+
 import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -33,6 +34,9 @@ public class DAONovaAnn {
 	 *
 	 * @see model.DAOEntity#find(int)
 	 */
+	/* (non-Javadoc)
+	 * @see model.javaproject.novaann.DAO.IDAONovaAnn#findMotionLess(int, int, int)
+	 */
 	public  char findMotionLess(final int x,final int y,final int lvl) {
 
 		try {
@@ -58,6 +62,9 @@ public class DAONovaAnn {
 	 * @see model.DAOEntity#find(java.lang.String)
 	 */
 
+	/* (non-Javadoc)
+	 * @see model.javaproject.novaann.DAO.IDAONovaAnn#findMobile(int, int)
+	 */
 	public void findMobile(final int lvl, final int mobile) {
 		try {
 			final String sql = "{call WhereIsMobileSpawning(?,?)}";
@@ -79,11 +86,17 @@ public class DAONovaAnn {
 		}
 	}
 
+	/* (non-Javadoc)
+	 * @see model.javaproject.novaann.DAO.IDAONovaAnn#getX()
+	 */
 	public int getX() {
 		return this.x;
 	}
 
 
+	/* (non-Javadoc)
+	 * @see model.javaproject.novaann.DAO.IDAONovaAnn#getY()
+	 */
 	public int getY() {
 		return this.y;
 	}

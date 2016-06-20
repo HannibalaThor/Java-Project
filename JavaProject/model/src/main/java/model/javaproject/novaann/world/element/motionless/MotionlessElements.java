@@ -1,4 +1,7 @@
 package model.javaproject.novaann.world.element.motionless;
+
+import contract.INovaAnnWorld;
+
 public abstract class MotionlessElements {
 	public static final MotionlessElement	BONEHORIZONTAL							= new BoneHorizontal();
 	public static final MotionlessElement	BONEVERTICAL							= new BoneVertical();

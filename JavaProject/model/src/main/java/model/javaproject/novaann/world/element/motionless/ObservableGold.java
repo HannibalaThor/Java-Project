@@ -1,12 +1,13 @@
 package model.javaproject.novaann.world.element.motionless;
 
 import java.util.ArrayList;
+import java.util.Observable;
 
 import model.javaproject.novaann.world.Observer;
 
 
 
-public class ObservableGold implements Observed {
+public class ObservableGold extends Observable {
 	private final ArrayList <Observer> observers;
 
 	public ObservableGold(){

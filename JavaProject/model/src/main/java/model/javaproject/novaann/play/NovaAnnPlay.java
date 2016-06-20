@@ -2,14 +2,22 @@ package model.javaproject.novaann.play;
 
 import java.io.IOException;
 
+
 import java.sql.Connection;
 import java.sql.SQLException;
 import java.util.concurrent.TimeUnit;
 
+import contract.IDoActionOnHeroes;
+import contract.IMonsterMobile;
 import contract.INovaAnnFrame;
 import contract.INovaAnnPlay;
+import contract.INovaAnnView;
 import contract.INovaAnnWorld;
 import contract.IOrderPerformed;
+import contract.UserOrder;
+import model.javaproject.novaann.DAO.DAONovaAnn;
+import model.javaproject.novaann.DAO.DBConnection;
+import model.javaproject.novaann.world.element.mobile.Hero;
 
 
 @SuppressWarnings("rawtypes")
@@ -40,7 +48,7 @@ public class NovaAnnPlay implements IOrderPerformed, INovaAnnPlay {
 		for(;;)
 		{
 			TimeUnit.MILLISECONDS.sleep(250);
-			for(contract.MonsterMobile m : this.novaAnnWorld.getMobiles()){
+			for(IMonsterMobile m : this.novaAnnWorld.getMobiles()){
 
 				m.getAnimate(m);
 
@@ -83,9 +91,6 @@ public class NovaAnnPlay implements IOrderPerformed, INovaAnnPlay {
 	}
 
 	private INovaAnnWorld getActuelNovaAnnWorld() {
-		if (this.getPlayMode() == NovaAnnView.VIEW_MODE_MEETING) {
-			return this.getNovaAnnMeeting();
-		}
 		return this.getNovaAnnWorld();
 	}
 
@@ -107,53 +112,6 @@ public class NovaAnnPlay implements IOrderPerformed, INovaAnnPlay {
 			break;
 		case LEFT:
 			this.getActuelNovaAnnWorld().getHero().moveLeft();
-			break;
-		case NOP:
-		default:
-			break;
-		}
-		this.getWorldAnswer();
-	}
-
-	private void resolveWorldAnswer() throws IOException {
-		this.getNovaAnnMeeting().addMobile(new Hero(), 0, 0);
-		this.getNovaAnnFrame().setMeeting(this.getNovaAnnMeeting());
-		this.setPlayMode(NovaAnnView.VIEW_MODE_MEETING);
-	}
-
-	private void exitMetting() throws IOException {
-		this.setPlayMode(NovaAnnView.VIEW_MODE_MAP);
-	}
-
-	private void escapeMetting() throws IOException {
-		this.exitMetting();
-		this.getActuelNovaAnnWorld().getHero().moveBack();
-	}
-
-	private void getWorldAnswer() throws IOException {
-		final IDoActionOnHeroes element = this.getActuelNovaAnnWorld().getElements(this.getActuelNovaAnnWorld().getHero().getX(),
-				this.getActuelNovaAnnWorld().getHero().getY());
-
-		switch (element.getActionOnHeroes()) {
-		case ENTER_CAMP:
-			NovaAnnView.displayMessage("You enter a camp.");
-
-			break;
-		case ENTER_TOWN:
-			NovaAnnView.displayMessage("You enter a town.");
-
-			break;
-		case ENTER_MONASTERY:
-			NovaAnnView.displayMessage("You enter a monastery.");
-
-			break;
-		case EXIT:
-			NovaAnnView.displayMessage("You leave this place.");
-			this.exitMetting();
-			break;
-		case ESCAPE:
-			NovaAnnView.displayMessage("You escape this place.");
-			this.escapeMetting();
 			break;
 		case NOP:
 		default:

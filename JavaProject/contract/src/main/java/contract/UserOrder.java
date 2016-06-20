@@ -1,4 +1,4 @@
-package model.javaproject.novaann.play;
+package contract;
 
 public enum UserOrder {
 	UP, RIGHT, DOWN, LEFT, UPRIGHT, UPLEFT, DOWNRIGHT, DOWNLEFT, NOP

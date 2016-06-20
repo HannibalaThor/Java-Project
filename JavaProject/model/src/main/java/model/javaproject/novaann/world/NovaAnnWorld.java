@@ -1,40 +1,42 @@
 package model.javaproject.novaann.world;
 
 import java.sql.Connection;
+
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.Observable;
 
-import contract.Element;
+import contract.IElement;
+import contract.IHero;
+import contract.IMobile;
+import contract.IMonsterMobile;
+import contract.IMotionlessElement;
 import contract.INovaAnnWorld;
+import contract.IScore;
 import model.javaproject.novaann.DAO.DAONovaAnn;
 import model.javaproject.novaann.DAO.DBConnection;
 import model.javaproject.novaann.sound.NovaAnnSound;
-import model.javaproject.novaann.world.element.mobile.Hero;
-import model.javaproject.novaann.world.element.mobile.Mobile;
-import model.javaproject.novaann.world.element.mobile.MonsterMobile;
 import model.javaproject.novaann.world.element.mobile.MonsterMobiles;
-import model.javaproject.novaann.world.element.motionless.MotionlessElement;
 import model.javaproject.novaann.world.element.motionless.MotionlessElements;
 
 
 
 public class NovaAnnWorld extends Observable implements INovaAnnWorld {
-	public MotionlessElement				elements[][];
-	public final ArrayList<Mobile> mobiles;
-	public final ArrayList<MonsterMobile>	mobilesTest;
+	public IMotionlessElement				elements[][];
+	public final ArrayList<IMobile> mobiles;
+	public final ArrayList<IMonsterMobile>	mobilesTest;
 	private int											width;
 	private int											height;
-	private static Hero										hero;
+	private static IHero										hero;
 	DAONovaAnn daoNovaAnn;
 	//private RainbowSpell	rainbowSpell;
-	private static Score score;
+	private static IScore score;
 	private int xEB;
 	private int yEB;
 
 	public NovaAnnWorld(int lvl) throws SQLException {
-		this.mobiles = new ArrayList<Mobile>();
-		this.mobilesTest = new ArrayList<MonsterMobile>();
+		this.mobiles = new ArrayList<IMobile>();
+		this.mobilesTest = new ArrayList<IMonsterMobile>();
 		NovaAnnWorld.score = new Score();
 
 		DBConnection dbConnection = new DBConnection();
@@ -53,8 +55,8 @@ public class NovaAnnWorld extends Observable implements INovaAnnWorld {
 	public int getHeight() {
 		return this.height;
 	}
-
-	public static Score getScoreScore(){
+	
+	public IScore getScoreScore(){
 		return score;
 	}
 
@@ -68,7 +70,7 @@ public class NovaAnnWorld extends Observable implements INovaAnnWorld {
 	}
 
 
-	public MotionlessElement getElements(final int x, final int y) {
+	public IMotionlessElement getElements(final int x, final int y) {
 		if ((x < 0) || (y < 0) || (x >= this.getWidth()) || (y >= this.getHeight())) {
 			return null;
 		}
@@ -76,11 +78,11 @@ public class NovaAnnWorld extends Observable implements INovaAnnWorld {
 	}
 
 	
-	public Hero getHero() {
+	public IHero getHero() {
 		return this.hero;
 	}
 
-	private void addElement(final MotionlessElement element, final int x, final int y) {
+	private void addElement(final IMotionlessElement element, final int x, final int y) {
 		this.elements[x][y] = element;
 		if (element != null) {
 			element.setNovaAnnWorld(this);
@@ -90,7 +92,7 @@ public class NovaAnnWorld extends Observable implements INovaAnnWorld {
 	}
 
 
-	public void addMobile(final MonsterMobile mobile, int x, final int y) {
+	public void addMobile(final IMonsterMobile mobile, int x, final int y) {
 		this.mobiles.add(mobile);
 		this.mobilesTest.add(mobile);
 		mobile.setNovaAnnWorld(this, x, y);
@@ -99,7 +101,7 @@ public class NovaAnnWorld extends Observable implements INovaAnnWorld {
 	}
 
 
-	public void addMobile(final Hero hero, final int x, final int y) {
+	public void addMobile(final IHero hero, final int x, final int y) {
 		this.setHero(hero);
 		this.mobiles.add(hero);
 		hero.setNovaAnnWorld(this, x, y);
@@ -115,7 +117,7 @@ public class NovaAnnWorld extends Observable implements INovaAnnWorld {
 		this.width = 20;
 		Boolean end1 = true;
 		boolean end2 = true;
-		this.elements = new MotionlessElement[this.getWidth()][this.getHeight()];
+		this.elements = new IMotionlessElement[this.getWidth()][this.getHeight()];
 
 		while(end1 == true){
 			int a = x- 1;
@@ -158,7 +160,7 @@ public class NovaAnnWorld extends Observable implements INovaAnnWorld {
 		this.setChanged();
 	}
 
-	private void setHero(final Hero hero) {
+	private void setHero(final IHero hero) {
 		this.hero = hero;
 		this.setChanged();
 	}
@@ -174,17 +176,17 @@ public class NovaAnnWorld extends Observable implements INovaAnnWorld {
 	}
 
 
-	public Element[][] getElements() {
+	public IElement[][] getElements() {
 		return this.elements;
 	}
 
 
-	public ArrayList<MonsterMobile> getMobiles() {
+	public ArrayList<IMonsterMobile> getMobiles() {
 		return this.mobilesTest;
 	}
 
 
-	public ArrayList<Mobile> getMobilesM() {
+	public ArrayList<IMobile> getMobilesM() {
 		return this.mobiles;
 	}
 
@@ -219,35 +221,5 @@ public class NovaAnnWorld extends Observable implements INovaAnnWorld {
 		if(this.elements[getXhero()][getYhero()].isCollected() == true){
 			this.addElement(MotionlessElements.getFromFileSymbol(' '), getXhero(), getYhero());
 		}
-	}
-
-
-	public contract.MotionlessElement getElements(int x, int y) {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
-
-	public contract.Hero getHero() {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
-
-	public void addMobile(contract.MonsterMobile mobile, int x, int y) {
-		// TODO Auto-generated method stub
-		
-	}
-
-
-	public void addMobile(contract.Hero hero, int x, int y) {
-		// TODO Auto-generated method stub
-		
-	}
-
-
-	public Element[][] getElements() {
-		// TODO Auto-generated method stub
-		return null;
 	}
 }

@@ -1,7 +1,10 @@
 package model.javaproject.novaann.world.element.mobile;
 
+import java.util.Observable;
+
+import contract.IMonsterMobile;
 import contract.ISprite;
-import model.javaproject.novaann.world.element.Permeability;
+import contract.Permeability;
 
 public class MonsterMobile extends Mobile implements IMonsterMobile {
 	private final char fileSymbol;
@@ -18,9 +21,24 @@ public class MonsterMobile extends Mobile implements IMonsterMobile {
 	}
 
 	//@Override
-	public void getAnimate(MonsterMobile mobile) {
+	public void getAnimate(IMonsterMobile mobile) {
 		// TODO Auto-generated method stub
 		this.context.executeStrategy(mobile);
 
+	}
+
+	public String getMessage() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	public void loadMessage(String key) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	public Observable getObservable() {
+		// TODO Auto-generated method stub
+		return null;
 	}
 }
