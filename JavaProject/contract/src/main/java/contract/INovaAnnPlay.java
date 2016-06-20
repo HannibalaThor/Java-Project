@@ -2,10 +2,8 @@ package contract;
 
 import java.io.IOException;
 
-import javaproject.novaann.view.INovaAnnFrame;
-import javaproject.novaann.world.INovaAnnWorld;
 
-public interface INovaAnnPlay {
+public interface INovaAnnPlay<UserOrder> {
 
 	void play() throws InterruptedException;
 

@@ -2,9 +2,8 @@ package contract;
 
 import java.awt.Image;
 
-import javaproject.novaann.world.INovaAnnWorld;
 
-public interface IElement {
+public interface IElement<Permeability> {
 
 	ISprite getSprite();
 

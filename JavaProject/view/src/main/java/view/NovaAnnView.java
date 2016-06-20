@@ -3,14 +3,12 @@ import java.awt.event.KeyEvent;
 
 import javax.swing.JOptionPane;
 
-import javaproject.novaann.play.UserOrder;
+import contract.INobaAnnView;
 
-public abstract class NovaAnnView {
+
+public abstract class NovaAnnView implements INobaAnnView {
 	public static int				MAP_ZOOM					= 10;
 	public static int				MEETING_ZOOM			= 4;
-	public final static int	VIEW_MODE_MAP			= 1;
-	public final static int	VIEW_MODE_MEETING	= 2;
-
 	public static UserOrder keyCodeToUserOrder(final int keyCode) {
 		switch (keyCode) {
 		case KeyEvent.VK_UP:

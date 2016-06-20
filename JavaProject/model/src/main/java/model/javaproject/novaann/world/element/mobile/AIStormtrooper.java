@@ -2,11 +2,10 @@ package model.javaproject.novaann.world.element.mobile;
 
 import java.util.Random;
 
-import javaproject.novaann.world.NovaAnnWorld;
+import model.javaproject.novaann.world.NovaAnnWorld;
 
 public class AIStormtrooper implements IStrategy {
 
-	@Override
 	public void animate(Mobile mobile){
 		int xL = NovaAnnWorld.getXhero();
 		int yL = NovaAnnWorld.getYhero();

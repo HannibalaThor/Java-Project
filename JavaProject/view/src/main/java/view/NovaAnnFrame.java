@@ -8,8 +8,11 @@ import java.io.IOException;
 
 import javax.swing.JFrame;
 
-import javaproject.novaann.play.INovaAnnPlay;
-import javaproject.novaann.world.INovaAnnWorld;
+import contract.INobaAnnView;
+import contract.INovaAnnFrame;
+import contract.INovaAnnPlay;
+import contract.INovaAnnWorld;
+
 
 public class NovaAnnFrame extends JFrame implements KeyListener, INovaAnnFrame {
 	private final Point position = new Point(10,7);
@@ -40,7 +43,6 @@ public class NovaAnnFrame extends JFrame implements KeyListener, INovaAnnFrame {
 		return this.novaAnnPlay;
 	}
 
-	@Override
 	public void setMeeting(final INovaAnnWorld novaAnnWorld) {
 		if (this.meetingPanel != null) {
 			this.novaAnnCardView.removeLayoutComponent(this.meetingPanel);
@@ -55,13 +57,13 @@ public class NovaAnnFrame extends JFrame implements KeyListener, INovaAnnFrame {
 		this.mapPanel.setCenter(center);
 	}
 
-	@Override
+
 	public void setViewMode(final int viewMode) {
 		switch (viewMode) {
-		case NovaAnnView.VIEW_MODE_MEETING:
+		case INobaAnnView.VIEW_MODE_MEETING:
 			this.novaAnnCardView.show(this.getContentPane(), "MEETING");
 			break;
-		case NovaAnnView.VIEW_MODE_MAP:
+		case INobaAnnView.VIEW_MODE_MAP:
 			this.novaAnnCardView.show(this.getContentPane(), "MAP");
 			break;
 		default:
@@ -69,7 +71,7 @@ public class NovaAnnFrame extends JFrame implements KeyListener, INovaAnnFrame {
 		}
 	}
 
-	@Override
+
 	public void keyPressed(final KeyEvent keyEvent) {
 		try {
 			this.getNovaAnnPlay().orderPerform(NovaAnnView.keyCodeToUserOrder(keyEvent.getKeyCode()));
@@ -78,12 +80,10 @@ public class NovaAnnFrame extends JFrame implements KeyListener, INovaAnnFrame {
 		}
 	}
 
-	@Override
 	public void keyReleased(final KeyEvent arg0) {
 	}
 
-	//@Override
-	@Override
+
 	public void keyTyped(final KeyEvent arg0) {
 	}
 }

@@ -1,7 +1,7 @@
 package model.javaproject.novaann.world.element.mobile;
 
-import javaproject.novaann.world.element.ISprite;
-import javaproject.novaann.world.element.Permeability;
+import contract.ISprite;
+import model.javaproject.novaann.world.element.Permeability;
 
 public class MonsterMobile extends Mobile implements IMonsterMobile {
 	private final char fileSymbol;

@@ -3,7 +3,6 @@ package model.javaproject.novaann.world.element.mobile;
 import java.util.Random;
 
 public class AIChainmail implements IStrategy {
-	@Override
 	public void animate(Mobile mobile){
 		int xM = mobile.getX();
 		int yM = mobile.getY();

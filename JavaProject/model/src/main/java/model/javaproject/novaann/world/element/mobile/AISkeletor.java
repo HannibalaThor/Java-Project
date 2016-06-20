@@ -1,10 +1,9 @@
 package model.javaproject.novaann.world.element.mobile;
 
-import javaproject.novaann.world.NovaAnnWorld;
+import model.javaproject.novaann.world.NovaAnnWorld;
 
 public class AISkeletor implements IStrategy {
 
-	@Override
 	public void animate(Mobile mobile){
 
 		int xL = NovaAnnWorld.getXhero();

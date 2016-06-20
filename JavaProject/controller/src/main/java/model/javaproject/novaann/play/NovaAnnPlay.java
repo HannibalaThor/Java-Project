@@ -1,19 +1,18 @@
 package model.javaproject.novaann.play;
 
 import java.io.IOException;
+
 import java.sql.Connection;
 import java.sql.SQLException;
 import java.util.concurrent.TimeUnit;
 
-import javaproject.novaann.DAO.DAONovaAnn;
-import javaproject.novaann.DAO.DBConnection;
-import javaproject.novaann.view.INovaAnnFrame;
-import javaproject.novaann.view.NovaAnnView;
-import javaproject.novaann.world.INovaAnnWorld;
-import javaproject.novaann.world.element.mobile.Hero;
-import javaproject.novaann.world.element.mobile.MonsterMobile;
-import javaproject.novaann.world.element.motionless.IDoActionOnHeroes;
+import contract.INovaAnnFrame;
+import contract.INovaAnnPlay;
+import contract.INovaAnnWorld;
+import contract.IOrderPerformed;
 
+
+@SuppressWarnings("rawtypes")
 public class NovaAnnPlay implements IOrderPerformed, INovaAnnPlay {
 
 
@@ -36,13 +35,12 @@ public class NovaAnnPlay implements IOrderPerformed, INovaAnnPlay {
 	/* (non-Javadoc)
 	 * @see javaproject.novaann.play.INovaAnnPlay#play()
 	 */
-	@Override
 	public void play() throws InterruptedException
 	{
 		for(;;)
 		{
 			TimeUnit.MILLISECONDS.sleep(250);
-			for(MonsterMobile m : this.novaAnnWorld.getMobiles()){
+			for(contract.MonsterMobile m : this.novaAnnWorld.getMobiles()){
 
 				m.getAnimate(m);
 
@@ -55,7 +53,6 @@ public class NovaAnnPlay implements IOrderPerformed, INovaAnnPlay {
 	/* (non-Javadoc)
 	 * @see javaproject.novaann.play.INovaAnnPlay#getNovaAnnWorld()
 	 */
-	@Override
 	public INovaAnnWorld getNovaAnnWorld() {
 		return this.novaAnnWorld;
 	}
@@ -71,7 +68,7 @@ public class NovaAnnPlay implements IOrderPerformed, INovaAnnPlay {
 	/* (non-Javadoc)
 	 * @see javaproject.novaann.play.INovaAnnPlay#setNovaAnnFrame(javaproject.novaann.view.INovaAnnFrame)
 	 */
-	@Override
+
 	public void setNovaAnnFrame(final INovaAnnFrame novaAnnFrame) {
 		this.novaAnnFrame = novaAnnFrame;
 	}
@@ -96,7 +93,6 @@ public class NovaAnnPlay implements IOrderPerformed, INovaAnnPlay {
 	/* (non-Javadoc)
 	 * @see javaproject.novaann.play.INovaAnnPlay#orderPerform(javaproject.novaann.play.UserOrder)
 	 */
-	@Override
 	public void orderPerform(final UserOrder userOrder) throws IOException {
 		switch (userOrder) {
 		case UP:
@@ -167,5 +163,10 @@ public class NovaAnnPlay implements IOrderPerformed, INovaAnnPlay {
 
 	private void setNovaAnnMeeting(final INovaAnnWorld novaAnnMeeting) {
 		this.novaAnnMeeting = novaAnnMeeting;
+	}
+
+	public void orderPerform(Object userOrder) throws IOException {
+		// TODO Auto-generated method stub
+		
 	}
 }

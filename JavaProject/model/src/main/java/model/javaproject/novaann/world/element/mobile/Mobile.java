@@ -4,10 +4,11 @@ package model.javaproject.novaann.world.element.mobile;
 import java.awt.Point;
 
 import aedt.showboard.IPawn;
-import javaproject.novaann.world.INovaAnnWorld;
-import javaproject.novaann.world.element.Element;
-import javaproject.novaann.world.element.ISprite;
-import javaproject.novaann.world.element.Permeability;
+import contract.INovaAnnWorld;
+import contract.ISprite;
+import model.javaproject.novaann.world.element.Element;
+import model.javaproject.novaann.world.element.Permeability;
+
 
 public abstract class Mobile extends Element implements IPawn {
 	private final Point position;

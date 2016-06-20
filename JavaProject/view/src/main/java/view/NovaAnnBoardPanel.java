@@ -7,6 +7,8 @@ import java.util.ArrayList;
 import aedt.showboard.IPawn;
 import aedt.showboard.ISquare;
 
+
+
 class NovaAnnBoardPanel extends aedt.showboard.BoardPanel {
 	
 	private static final long serialVersionUID = 2361367180781892671L;

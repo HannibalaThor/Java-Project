@@ -10,13 +10,15 @@ import org.junit.Before;
 import org.junit.BeforeClass;
 import org.junit.Test;
 
+import contract.IModel;
+
 /**
  * The Class ModelTest.
  *
  * @author Jean-Aymeric Diet
  */
 public class ModelTest {
-	private Model model;
+	private IModel model;
 
 	/**
 	 * Sets the up before class.

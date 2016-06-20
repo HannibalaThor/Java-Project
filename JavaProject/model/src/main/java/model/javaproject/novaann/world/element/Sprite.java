@@ -7,6 +7,8 @@ import java.io.StringWriter;
 
 import javax.imageio.ImageIO;
 
+import contract.ISprite;
+
 public class Sprite extends StringWriter implements ISprite {
 	private Image image;
 
@@ -29,7 +31,6 @@ public class Sprite extends StringWriter implements ISprite {
 	 * @see jpu2016.nettle.world.element.ISprite#getImage()
 	 */
 	//@Override
-	@Override
 	public Image getImage() {
 		return this.image;
 	}

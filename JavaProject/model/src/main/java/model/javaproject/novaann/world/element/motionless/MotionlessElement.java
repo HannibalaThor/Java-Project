@@ -1,7 +1,7 @@
-package motionless;
-import javaproject.novaann.world.element.Element;
-import javaproject.novaann.world.element.ISprite;
-import javaproject.novaann.world.element.Permeability;
+package model.javaproject.novaann.world.element.motionless;
+import contract.ISprite;
+import model.javaproject.novaann.world.element.Element;
+import model.javaproject.novaann.world.element.Permeability;
 
 public abstract class MotionlessElement extends Element implements IDoActionOnHeroes {
 	private final char fileSymbol;
@@ -30,7 +30,6 @@ public abstract class MotionlessElement extends Element implements IDoActionOnHe
 	}
 
 	//@Override
-	@Override
 	public ActionOnHeroes getActionOnHeroes() {
 		return ActionOnHeroes.NOP;
 	}

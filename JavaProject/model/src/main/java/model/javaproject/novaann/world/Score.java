@@ -15,7 +15,6 @@ public class Score implements Observer {
 		this.score = score;
 	}
 
-	@Override
 	public void update(int score) {
 		this.setScore(this.getScore() + score);
 	}

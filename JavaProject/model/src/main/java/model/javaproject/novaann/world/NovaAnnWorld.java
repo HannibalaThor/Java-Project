@@ -5,16 +5,19 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.Observable;
 
-import javaproject.novaann.DAO.DAONovaAnn;
-import javaproject.novaann.DAO.DBConnection;
-import javaproject.novaann.sound.NovaAnnSound;
-import javaproject.novaann.world.element.Element;
-import javaproject.novaann.world.element.mobile.Hero;
-import javaproject.novaann.world.element.mobile.Mobile;
-import javaproject.novaann.world.element.mobile.MonsterMobile;
-import javaproject.novaann.world.element.mobile.MonsterMobiles;
-import javaproject.novaann.world.element.motionless.MotionlessElement;
-import javaproject.novaann.world.element.motionless.MotionlessElements;
+import contract.Element;
+import contract.INovaAnnWorld;
+import model.javaproject.novaann.DAO.DAONovaAnn;
+import model.javaproject.novaann.DAO.DBConnection;
+import model.javaproject.novaann.sound.NovaAnnSound;
+import model.javaproject.novaann.world.element.mobile.Hero;
+import model.javaproject.novaann.world.element.mobile.Mobile;
+import model.javaproject.novaann.world.element.mobile.MonsterMobile;
+import model.javaproject.novaann.world.element.mobile.MonsterMobiles;
+import model.javaproject.novaann.world.element.motionless.MotionlessElement;
+import model.javaproject.novaann.world.element.motionless.MotionlessElements;
+
+
 
 public class NovaAnnWorld extends Observable implements INovaAnnWorld {
 	public MotionlessElement				elements[][];
@@ -41,12 +44,12 @@ public class NovaAnnWorld extends Observable implements INovaAnnWorld {
 		this.loadFile(lvl);
 	}
 
-	@Override
+
 	public int getWidth() {
 		return this.width;
 	}
 
-	@Override
+
 	public int getHeight() {
 		return this.height;
 	}
@@ -55,17 +58,16 @@ public class NovaAnnWorld extends Observable implements INovaAnnWorld {
 		return score;
 	}
 
-	@Override
 	public int getScore(){
 		return NovaAnnWorld.score.getScore();
 	}
 
-	@Override
+
 	public void setScore(int score){
 		NovaAnnWorld.score.setScore(score);
 	}
 
-	@Override
+
 	public MotionlessElement getElements(final int x, final int y) {
 		if ((x < 0) || (y < 0) || (x >= this.getWidth()) || (y >= this.getHeight())) {
 			return null;
@@ -73,7 +75,7 @@ public class NovaAnnWorld extends Observable implements INovaAnnWorld {
 		return this.elements[x][y];
 	}
 
-	@Override
+	
 	public Hero getHero() {
 		return this.hero;
 	}
@@ -87,7 +89,7 @@ public class NovaAnnWorld extends Observable implements INovaAnnWorld {
 		this.setChanged();
 	}
 
-	@Override
+
 	public void addMobile(final MonsterMobile mobile, int x, final int y) {
 		this.mobiles.add(mobile);
 		this.mobilesTest.add(mobile);
@@ -96,7 +98,7 @@ public class NovaAnnWorld extends Observable implements INovaAnnWorld {
 		this.notifyObservers();
 	}
 
-	@Override
+
 	public void addMobile(final Hero hero, final int x, final int y) {
 		this.setHero(hero);
 		this.mobiles.add(hero);
@@ -161,7 +163,6 @@ public class NovaAnnWorld extends Observable implements INovaAnnWorld {
 		this.setChanged();
 	}
 
-	@Override
 	public void setMobileHasChanged() {
 		this.setChanged();
 		this.notifyObservers();
@@ -172,17 +173,17 @@ public class NovaAnnWorld extends Observable implements INovaAnnWorld {
 		super.notifyObservers();
 	}
 
-	@Override
+
 	public Element[][] getElements() {
 		return this.elements;
 	}
 
-	@Override
+
 	public ArrayList<MonsterMobile> getMobiles() {
 		return this.mobilesTest;
 	}
 
-	@Override
+
 	public ArrayList<Mobile> getMobilesM() {
 		return this.mobiles;
 	}
@@ -194,7 +195,7 @@ public class NovaAnnWorld extends Observable implements INovaAnnWorld {
 		return hero.getY();
 	}
 
-	@Override
+
 	public void death(){
 		for(int x = 0; x <= (this.mobilesTest.size()-1); x++){
 
@@ -209,7 +210,7 @@ public class NovaAnnWorld extends Observable implements INovaAnnWorld {
 		}
 	}
 
-	@Override
+
 	public void destructCollected(){
 		if((this.elements[getXhero()][getYhero()].getClass().getName() == "javaproject.novaann.world.element.motionless.Gold") || (this.elements[getXhero()][getYhero()].getClass().getName() == "javaproject.novaann.world.element.motionless.EnergyBubble")){
 			this.elements[getXhero()][getYhero()].setCollected(true);
@@ -218,5 +219,35 @@ public class NovaAnnWorld extends Observable implements INovaAnnWorld {
 		if(this.elements[getXhero()][getYhero()].isCollected() == true){
 			this.addElement(MotionlessElements.getFromFileSymbol(' '), getXhero(), getYhero());
 		}
+	}
+
+
+	public contract.MotionlessElement getElements(int x, int y) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+
+	public contract.Hero getHero() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+
+	public void addMobile(contract.MonsterMobile mobile, int x, int y) {
+		// TODO Auto-generated method stub
+		
+	}
+
+
+	public void addMobile(contract.Hero hero, int x, int y) {
+		// TODO Auto-generated method stub
+		
+	}
+
+
+	public Element[][] getElements() {
+		// TODO Auto-generated method stub
+		return null;
 	}
 }

@@ -3,7 +3,10 @@ package model.javaproject.novaann.world.element;
 import java.awt.Image;
 
 import aedt.showboard.ISquare;
-import javaproject.novaann.world.INovaAnnWorld;
+import contract.IElement;
+import contract.INovaAnnWorld;
+import contract.ISprite;
+
 
 public abstract class Element implements ISquare, IElement {
 	private ISprite				sprite;
@@ -18,7 +21,6 @@ public abstract class Element implements ISquare, IElement {
 	/* (non-Javadoc)
 	 * @see javaproject.novaann.world.element.IElement#getSprite()
 	 */
-	@Override
 	public ISprite getSprite() {
 		return this.sprite;
 	}
@@ -30,7 +32,6 @@ public abstract class Element implements ISquare, IElement {
 	/* (non-Javadoc)
 	 * @see javaproject.novaann.world.element.IElement#getPermeability()
 	 */
-	@Override
 	public Permeability getPermeability() {
 		return this.permeability;
 	}
@@ -46,7 +47,6 @@ public abstract class Element implements ISquare, IElement {
 	/* (non-Javadoc)
 	 * @see javaproject.novaann.world.element.IElement#setNovaAnnWorld(javaproject.novaann.world.INovaAnnWorld)
 	 */
-	@Override
 	public void setNovaAnnWorld(final INovaAnnWorld novaAnnWorld) {
 		this.novaAnnWorld = novaAnnWorld;
 	}
@@ -55,7 +55,6 @@ public abstract class Element implements ISquare, IElement {
 	/* (non-Javadoc)
 	 * @see javaproject.novaann.world.element.IElement#getImage()
 	 */
-	@Override
 	public Image getImage() {
 		return this.getSprite().getImage();
 	}
