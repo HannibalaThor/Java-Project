@@ -15,14 +15,14 @@ public class Sprite extends StringWriter implements ISprite {
 	public Sprite(final String c, final String image) {
 		this.write(c);
 		try {
-			this.image = ImageIO.read(new File("C:/Users/Alexandre/workspace2/Java-Project/images/" + image));
+			this.image = ImageIO.read(new File("/Users/clementerb/git/Java-Project/JavaProject/model/images/" + image));
 		} catch (final IOException e) {
 			e.printStackTrace();
 		}
 	}
 
 	public Sprite(final String c) {
-		this(c, "C:/Users/Alexandre/workspace2/Java-Project/images/noimage.png");
+		this(c, "/Users/clementerb/git/Java-Project/JavaProject/model/images/images/noimage.jpg");
 	}
 
 	/*

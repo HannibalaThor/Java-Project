@@ -35,9 +35,9 @@ public class DAONovaAnn {
 	 */
 	public  char findMotionLess(final int x,final int y,final int lvl) {
 
-		/*try {
+		try {
 			final String sql = "{call WhatIsHere(?,?,?)}";
-			final CallableStatement call = this.getConnection().prepareCall(sql);
+			CallableStatement call = this.getConnection().prepareCall(sql);
 			call.setInt(1, x);
 			call.setInt(2, y);
 			call.setInt(3, lvl);
@@ -48,7 +48,7 @@ public class DAONovaAnn {
 			}
 		} catch (final SQLException e) {
 			e.printStackTrace();
-		}*/
+		}
 		return ' ';
 	}
 
@@ -59,7 +59,7 @@ public class DAONovaAnn {
 	 */
 
 	public void findMobile(final int lvl, final int mobile) {
-		/*try {
+		try {
 			final String sql = "{call WhereIsMobileSpawning(?,?)}";
 			final CallableStatement call = this.getConnection().prepareCall(sql);
 			call.setInt(1, lvl);
@@ -76,7 +76,7 @@ public class DAONovaAnn {
 			}
 		} catch (final SQLException e) {
 			e.printStackTrace();
-		}*/
+		}
 	}
 
 	public int getX() {

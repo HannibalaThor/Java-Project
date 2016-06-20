@@ -22,6 +22,6 @@
 			<attribute name="maven.pomderived" value="true"/>
 		</attributes>
 	</classpathentry>
-	<classpathentry kind="lib" path="C:/Users/Alexandre/workspace2/Java-Project/aedt.showboard.jar"/>
+	<classpathentry kind="lib" path="/Users/clementerb/Documents/workspace/testNovaAnn/aedt.showboard.jar"/>
 	<classpathentry kind="output" path="target/classes"/>
 </classpath>

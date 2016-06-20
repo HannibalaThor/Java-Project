@@ -1,5 +1,6 @@
 package model.javaproject.novaann.world.element.motionless;
 
+import contract.IMotionlessElement;
 import contract.INovaAnnWorld;
 
 public abstract class MotionlessElements {
@@ -14,8 +15,8 @@ public abstract class MotionlessElements {
 
 	private static MotionlessElement			motionlessElements[]	= { BONEHORIZONTAL, BONEVERTICAL, BALLWALL, DOOR, GOLD, FLOOR, ENERGYBUBBLE };
 
-	public static MotionlessElement getFromFileSymbol(final char fileSymbol) {
-		for (final MotionlessElement motionlessElement : motionlessElements) {
+	public static IMotionlessElement getFromFileSymbol(final char fileSymbol) {
+		for (final IMotionlessElement motionlessElement : motionlessElements) {
 			if (motionlessElement.getFileSymbol() == fileSymbol) {
 				return motionlessElement;
 			}

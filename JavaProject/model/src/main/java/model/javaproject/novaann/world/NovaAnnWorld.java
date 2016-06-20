@@ -50,9 +50,9 @@ public class NovaAnnWorld extends Observable implements INovaAnnWorld {
 		this.mobilesTest = new ArrayList<IMonsterMobile>();
 		NovaAnnWorld.score = new Score();
 
-		//DBConnection dbConnection = new DBConnection();
-		//Connection connection = dbConnection.getConnection();
-		//this.daoNovaAnn = new DAONovaAnn(connection);
+		DBConnection dbConnection = new DBConnection();
+		Connection connection = dbConnection.getConnection();
+		this.daoNovaAnn = new DAONovaAnn(connection);
 
 		try {
 			this.loadFile(lvl);
@@ -99,7 +99,9 @@ public class NovaAnnWorld extends Observable implements INovaAnnWorld {
 	}
 
 	private void addElement(final IMotionlessElement element, final int x, final int y) {
+		
 		this.elements[x][y] = element;
+		
 		if (element != null) {
 			element.setNovaAnnWorld(this);
 
@@ -126,7 +128,7 @@ public class NovaAnnWorld extends Observable implements INovaAnnWorld {
 	}
 
 	private void loadFile(int lvl) throws IOException{
-	/*	int x = 1;
+		int x = 1;
 		int y = 1;
 		int id = 1;
 		this.height = 12;
@@ -173,15 +175,13 @@ public class NovaAnnWorld extends Observable implements INovaAnnWorld {
 				end2 = false;
 			}
 		}
-		this.setChanged();*/
-		final BufferedReader buffer = new BufferedReader(new InputStreamReader(new FileInputStream("C:/Users/Alexandre/workspace2/Java-Project/Niveau_1.txt")));
+		this.setChanged();
+		/*final BufferedReader buffer = new BufferedReader(new InputStreamReader(new FileInputStream("/Users/clementerb/git/Java-Project/JavaProject/model/map1.txt")));
 		String line = null;
 		int numLine = 0;
-		line = buffer.readLine();
-		this.width = Integer.parseInt(line);
-		line = buffer.readLine();
-		this.height = Integer.parseInt(line);
-		this.elements = new MotionlessElement[this.getWidth()][this.getHeight()];
+		this.width = 12;
+		this.height = 20;
+		this.elements = new IMotionlessElement[this.getWidth()][this.getHeight()];
 		while ((line = buffer.readLine()) != null) {
 			for (int x = 0; x < line.toCharArray().length; x++) {
 				this.addElement(MotionlessElements.getFromFileSymbol(line.toCharArray()[x]), x, numLine);
@@ -199,7 +199,7 @@ public class NovaAnnWorld extends Observable implements INovaAnnWorld {
 		this.addMobile(new Skeletor(), 15, 8);
 		//this.addMobile(new Chainmail(), 14, 8);
 		//this.addMobile(new Butterfly(), 14, 9);
-		//this.addMobile(new Stormtrooper(), 15, 9);
+		//this.addMobile(new Stormtrooper(), 15, 9);*/
 	}
 
 	private void setHero(final IHero hero) {

@@ -36,8 +36,8 @@ public class NovaAnnPlay implements IOrderPerformed, INovaAnnPlay {
 		this.daoNovaAnn = new DAONovaAnn(connection);
 		this.novaAnnWorld = novaAnnWorld;
 		this.daoNovaAnn.findMobile(lvl, 1);
-		//this.novaAnnWorld.addMobile(new Hero(), this.daoNovaAnn.getX()-1 , this.daoNovaAnn.getY()-1);
-		this.novaAnnWorld.addMobile(new Hero(),18 , 7);
+		this.novaAnnWorld.addMobile(new Hero(), this.daoNovaAnn.getX()-1 , this.daoNovaAnn.getY()-1);
+		//this.novaAnnWorld.addMobile(new Hero(),18 , 7);
 	}
 
 	/* (non-Javadoc)

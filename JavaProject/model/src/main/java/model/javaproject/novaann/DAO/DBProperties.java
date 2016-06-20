@@ -14,7 +14,7 @@ class DBProperties extends Properties {
 	private final static String	PROPERTIES_FILE_NAME	= "model.properties";
 
 	/** The url. */
-	private String	url	= "jdbc:mysql://localhost:3306/javalorann";
+	private String	url	= "jdbc:mysql://localhost:8889/JavaLorann?autoReconnect=true&useSSL=false";
 
 	/** The login. */
 	private String	login = "root";

@@ -11,7 +11,7 @@ public class Hero extends Mobile implements IHero {
 	private final Point lastPosition;
 
 	public Hero() {
-		super(new Sprite("☺!", "heroes.png"));
+		super(new Sprite("☺!", "lorann_b.png"));
 		this.lastPosition = new Point();
 		this.lastPosition.setLocation(this.getPosition().x, this.getPosition().y);
 	}
