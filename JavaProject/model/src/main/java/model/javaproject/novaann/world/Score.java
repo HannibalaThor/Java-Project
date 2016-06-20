@@ -1,0 +1,23 @@
+package model.javaproject.novaann.world;
+
+public class Score implements Observer {
+	private int score;
+
+	public Score(){
+		this.score = 0;
+	}
+
+	public int getScore() {
+		return this.score;
+	}
+
+	public void setScore(int score) {
+		this.score = score;
+	}
+
+	@Override
+	public void update(int score) {
+		this.setScore(this.getScore() + score);
+	}
+
+}
