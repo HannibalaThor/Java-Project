@@ -6,7 +6,9 @@ import model.javaproject.novaann.world.NovaAnnWorld;
 public class AISkeletor implements IStrategy {
 
 	public void animate(Mobile mobile){
-
+		
+		System.out.println("JE SUIS LA");
+		
 		int xL = NovaAnnWorld.getXhero();
 		int yL = NovaAnnWorld.getYhero();
 		int xM = mobile.getX();

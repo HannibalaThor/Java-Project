@@ -8,7 +8,7 @@ import model.javaproject.novaann.world.element.Sprite;
 class Floor extends MotionlessElement {
 
 	public Floor() {
-		super(new Sprite("l", "noimage.jpg"), Permeability.PENETRABLE, 'L', false);
+		super(new Sprite("l", "noimage.png"), Permeability.PENETRABLE, 'L', false);
 	}
 
 	public ActionOnHeroes getActionOnHeroes() {

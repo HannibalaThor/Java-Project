@@ -1,5 +1,10 @@
 package model.javaproject.novaann.world;
 
+import java.io.BufferedReader;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.IOException;
+import java.io.InputStreamReader;
 import java.sql.Connection;
 
 import java.sql.SQLException;
@@ -16,7 +21,13 @@ import contract.IScore;
 import model.javaproject.novaann.DAO.DAONovaAnn;
 import model.javaproject.novaann.DAO.DBConnection;
 import model.javaproject.novaann.sound.NovaAnnSound;
+import model.javaproject.novaann.world.element.mobile.Butterfly;
+import model.javaproject.novaann.world.element.mobile.Chainmail;
+import model.javaproject.novaann.world.element.mobile.DoorMonster;
 import model.javaproject.novaann.world.element.mobile.MonsterMobiles;
+import model.javaproject.novaann.world.element.mobile.Skeletor;
+import model.javaproject.novaann.world.element.mobile.Stormtrooper;
+import model.javaproject.novaann.world.element.motionless.MotionlessElement;
 import model.javaproject.novaann.world.element.motionless.MotionlessElements;
 
 
@@ -39,11 +50,16 @@ public class NovaAnnWorld extends Observable implements INovaAnnWorld {
 		this.mobilesTest = new ArrayList<IMonsterMobile>();
 		NovaAnnWorld.score = new Score();
 
-		DBConnection dbConnection = new DBConnection();
-		Connection connection = dbConnection.getConnection();
-		this.daoNovaAnn = new DAONovaAnn(connection);
+		//DBConnection dbConnection = new DBConnection();
+		//Connection connection = dbConnection.getConnection();
+		//this.daoNovaAnn = new DAONovaAnn(connection);
 
-		this.loadFile(lvl);
+		try {
+			this.loadFile(lvl);
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 	}
 
 
@@ -109,8 +125,8 @@ public class NovaAnnWorld extends Observable implements INovaAnnWorld {
 		this.notifyObservers();
 	}
 
-	private void loadFile(int lvl){
-		int x = 1;
+	private void loadFile(int lvl) throws IOException{
+	/*	int x = 1;
 		int y = 1;
 		int id = 1;
 		this.height = 12;
@@ -157,7 +173,33 @@ public class NovaAnnWorld extends Observable implements INovaAnnWorld {
 				end2 = false;
 			}
 		}
+		this.setChanged();*/
+		final BufferedReader buffer = new BufferedReader(new InputStreamReader(new FileInputStream("C:/Users/Alexandre/workspace2/Java-Project/Niveau_1.txt")));
+		String line = null;
+		int numLine = 0;
+		line = buffer.readLine();
+		this.width = Integer.parseInt(line);
+		line = buffer.readLine();
+		this.height = Integer.parseInt(line);
+		this.elements = new MotionlessElement[this.getWidth()][this.getHeight()];
+		while ((line = buffer.readLine()) != null) {
+			for (int x = 0; x < line.toCharArray().length; x++) {
+				this.addElement(MotionlessElements.getFromFileSymbol(line.toCharArray()[x]), x, numLine);
+				if(line.toCharArray()[x] == 'D'){
+					this.addMobile(new DoorMonster(), x, numLine);
+				} else if (line.toCharArray()[x] == 'E'){
+					this.xEB = x;
+					this.yEB = numLine;
+				}
+			}
+			numLine++;
+		}
+		buffer.close();
 		this.setChanged();
+		this.addMobile(new Skeletor(), 15, 8);
+		//this.addMobile(new Chainmail(), 14, 8);
+		//this.addMobile(new Butterfly(), 14, 9);
+		//this.addMobile(new Stormtrooper(), 15, 9);
 	}
 
 	private void setHero(final IHero hero) {

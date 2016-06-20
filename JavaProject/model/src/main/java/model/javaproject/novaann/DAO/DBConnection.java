@@ -5,6 +5,7 @@ import java.sql.DriverManager;
 import java.sql.SQLException;
 
 
+
 public final class DBConnection {
 	/** The instance. */
 	private static DBConnection	INSTANCE	= null;
@@ -30,7 +31,7 @@ public final class DBConnection {
 	 * @return the boolean
 	 */
 	private Boolean open() {
-		final DBProperties dbProperties = new DBProperties();
+		/*final DBProperties dbProperties = new DBProperties();
 		try {
 			Class.forName("com.mysql.jdbc.Driver");
 			this.connection = DriverManager.getConnection(dbProperties.getUrl(), dbProperties.getLogin(), dbProperties.getPassword());
@@ -38,7 +39,7 @@ public final class DBConnection {
 			e.printStackTrace();
 		} catch (final SQLException e) {
 			e.printStackTrace();
-		}
+		}*/
 		return true;
 	}
 
