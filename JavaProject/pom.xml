@@ -12,10 +12,11 @@
 	</properties>
 	<modules>
 		<module>view</module>
-		<module>main</module>
+		
 		<module>controller</module>
 		<module>contract</module>
 		<module>model</module>
+		<module>main</module>
 	</modules>
 	<dependencies>
 		<dependency>
